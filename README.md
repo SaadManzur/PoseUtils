@@ -21,6 +21,7 @@ Contains methods for calculating some properties of the pose or dataset. Include
 1. Limb length
 2. Camera angle calcuation
 3. Joint angle conversion
+4. Body centered axis
 
 ## View
 

@@ -106,6 +106,40 @@ def calculate_camera_angles(data):
         
     return np.array(angles)
 
+def get_body_centered_axes(joints):
+
+    assert len(joints.shape) == 2
+    assert joints.shape[-1] == 3
+    assert joints.shape[0] == 14 or joints.shape[0] == 16
+
+    hip = 0
+    if joints.shape[0] == 14:
+        lshldr = 8
+        rshldr = 11
+    else:
+        lshldr = 10
+        rshldr = 13
+
+    p_p = joints[hip, :]
+    p_l = joints[lshldr, :]
+    p_r = joints[rshldr, :]
+
+    up = ((p_l + p_r) / 2) - p_p
+    up = up / np.linalg.norm(up)
+
+    forward = np.cross((p_l - p_p), (p_r - p_p))
+    forward = forward / np.linalg.norm(forward)
+    
+    right = np.cross(forward, up)
+    right = right / np.linalg.norm(right)
+
+    R = np.zeros((3, 3))
+    R[:, 0] = right
+    R[:, 1] = up
+    R[:, 2] = forward
+
+    return up, forward, right, R
+
 def get_angles_from_joints(joints):
 
     assert len(joints.shape) == 2

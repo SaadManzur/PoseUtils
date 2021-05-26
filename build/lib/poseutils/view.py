@@ -1,6 +1,6 @@
 from poseutils.constants import *
 
-def draw_axis(R, t, ax, scale=0.5):
+def draw_axes(R, t, ax, scale=0.5):
     x, y, z = R[:, 0], R[:, 1], R[:, 2]
 
     x = t + scale*x
