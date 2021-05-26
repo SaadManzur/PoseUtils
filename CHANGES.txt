@@ -1,1 +1,2 @@
+0.2.1 - Torso normalization, dataset indices [May 25, 2021]
 0.2.0 - Added individual limb length, joint to angle conversion (and back), axis visualizer, adjacency list [May 25, 2021]

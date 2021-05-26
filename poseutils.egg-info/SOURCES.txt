@@ -6,6 +6,7 @@ poseutils/common.py
 poseutils/constants.py
 poseutils/metrics.py
 poseutils/props.py
+poseutils/transform.py
 poseutils/view.py
 poseutils.egg-info/PKG-INFO
 poseutils.egg-info/SOURCES.txt
