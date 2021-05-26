@@ -1,12 +1,11 @@
 Metadata-Version: 2.1
 Name: poseutils
-Version: 0.1.0
+Version: 0.2.0
 Summary: A simple package containing common essentials for pose based research
 Home-page: UNKNOWN
 Author: Saad Manzur
 Author-email: smanzur@uci.edu
 License: LICENSE.txt
-Description: UNKNOWN
 Platform: UNKNOWN
 Classifier: Development Status :: 1 - Planning
 Classifier: Intended Audience :: Science/Research
@@ -18,3 +17,7 @@ Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3.4
 Classifier: Programming Language :: Python :: 3.5
 Classifier: Programming Language :: Python :: 3.6
+License-File: LICENSE.txt
+
+UNKNOWN
+

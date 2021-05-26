@@ -20,12 +20,14 @@ Contains methods for calculating some properties of the pose or dataset. Include
 
 1. Limb length
 2. Camera angle calcuation
+3. Joint angle conversion
 
 ## View
 
 Contains methods for plotting and viewing different stats of the pose. Included - 
 
 1. Pose (2d or 3d, 14 or 16)
+2. Axis
 
 ## Common
 

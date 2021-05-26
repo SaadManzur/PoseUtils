@@ -1,5 +1,16 @@
 from poseutils.constants import *
 
+def draw_axis(R, t, ax, scale=0.5):
+    x, y, z = R[:, 0], R[:, 1], R[:, 2]
+
+    x = t + scale*x
+    y = t + scale*y
+    z = t + scale*z
+
+    ax.plot([t[0], x[0]], [t[1], x[1]], [t[2], x[2]], color='r')
+    ax.plot([t[0], y[0]], [t[1], y[1]], [t[2], y[2]], color='g')
+    ax.plot([t[0], z[0]], [t[1], z[1]], [t[2], z[2]], color='b')
+
 def draw_skeleton(pose, ax, jnts_14=True):
 
     assert len(pose.shape) == 2

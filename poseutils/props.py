@@ -5,6 +5,29 @@ from poseutils.constants import *
 from poseutils.common import calc_angle_360
 from poseutils.common import normalize_a_to_b
 
+def calculate_limb_lengths(jnts_xd, cvt_mm=False):
+
+    assert len(jnts_xd.shape) == 2
+    assert jnts_xd.shape[-1] == 2 or jnts_xd.shape[-1] == 3
+    assert jnts_xd.shape[0] == 14 or jnts_xd.shape[0] == 16
+
+    if jnts_xd.shape[0] == 14:
+        edge_names = EDGE_NAMES_14JNTS
+        edges = EDGES_14
+    else:
+        edge_names = EDGE_NAMES_16JNTS
+        edges = EDGES_16
+
+    edge_length = [0.0]*len(edge_names)
+    
+    for i, (u, v) in enumerate(edges):
+        edge_length[i] = np.linalg.norm(jnts_xd[u]-jnts_xd[v])
+
+    if cvt_mm:
+        edge_length = edge_length*1000
+
+    return edge_length
+
 def calculate_avg_limb_lengths(jnts_xd, cvt_mm=False):
 
     assert len(jnts_xd.shape) == 3
@@ -82,3 +105,62 @@ def calculate_camera_angles(data):
         angles.append(np.array([camera_elev, camera_azim]))
         
     return np.array(angles)
+
+def get_angles_from_joints(joints):
+
+    assert len(joints.shape) == 2
+    assert joints.shape[-1] == 3
+    
+    if joints.shape[0] == 16:
+        edges = EDGES_16
+        edge_names = EDGE_NAMES_16JNTS
+    elif joints.shape[0] == 14:
+        edges = EDGES_14
+        edge_names = EDGE_NAMES_14JNTS
+    else:
+        raise ValueError("Only supports 14 or 16 joint configuration. Has to be of shape (14, 3) or (16, 3)")
+
+    joint_angles = []
+    
+    for u, v in edges:
+        
+        vec = normalize_a_to_b(joints[u], joints[v])
+        angles = [np.arccos(vec[0]), np.arccos(vec[1]), np.arccos(vec[2])]
+        joint_angles.append(angles)
+    
+    return np.array(joint_angles), np.array(edge_names)
+
+def get_joints_from_angles(angles, bone_lengths):
+
+    assert len(angles.shape) == 2
+    assert angles.shape[-1] == 3
+
+    if angles.shape[0] == 15:
+        edges = EDGES_16
+    elif angles.shape[0] == 13:
+        edges = EDGES_14
+    else:
+        raise ValueError("Only 14 or 16 joint configurations.")
+
+    adjacency = adjacency_list(angles.shape[0]+1)
+
+    queue = []
+
+    queue.append(0)
+
+    joints = []
+
+    for _ in range(angles.shape[0]+1):
+        joints.append(np.zeros(3))
+
+    while len(queue) > 0:
+        current = queue.pop(0)
+
+        for child in adjacency[current]:
+            queue.append(child)
+            idx = edges.index([current, child])
+            angle = np.array(angles[idx])
+            vec = np.array([np.cos(angle[0]), np.cos(angle[1]), np.cos(angle[2])])
+            joints[child] = bone_lengths[idx]*vec + joints[current]
+    
+    return np.array(joints)
