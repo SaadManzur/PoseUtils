@@ -108,37 +108,40 @@ def calculate_camera_angles(data):
 
 def get_body_centered_axes(joints):
 
-    assert len(joints.shape) == 2
+    assert len(joints.shape) == 3
     assert joints.shape[-1] == 3
-    assert joints.shape[0] == 14 or joints.shape[0] == 16
+    assert joints.shape[1] == 14 or joints.shape[1] == 16
 
     hip = 0
-    if joints.shape[0] == 14:
+    if joints.shape[1] == 14:
         lshldr = 8
         rshldr = 11
     else:
         lshldr = 10
         rshldr = 13
 
-    p_p = joints[hip, :]
-    p_l = joints[lshldr, :]
-    p_r = joints[rshldr, :]
+    p_p = joints[:, hip, :]
+    p_l = joints[:, lshldr, :]
+    p_r = joints[:, rshldr, :]
 
-    up = ((p_l + p_r) / 2) - p_p
-    up = up / np.linalg.norm(up)
+    up = ((p_l + p_r) / 2.) - p_p
+    up = up / np.linalg.norm(up, axis=1).reshape(-1, 1)
 
     forward = np.cross((p_l - p_p), (p_r - p_p))
-    forward = forward / np.linalg.norm(forward)
+    forward = forward / np.linalg.norm(forward, axis=1).reshape(-1, 1)
     
-    right = np.cross(forward, up)
-    right = right / np.linalg.norm(right)
+    right = np.cross(forward, up, axis=1)
+    right = right / np.linalg.norm(right, axis=1).reshape(-1, 1)
 
-    R = np.zeros((3, 3))
-    R[:, 0] = right
-    R[:, 1] = up
-    R[:, 2] = forward
+    forward = np.cross(up, right, axis=1)
+    forward = forward / np.linalg.norm(forward, axis=1).reshape(-1, 1)
 
-    return up, forward, right, R
+    R = np.hstack((right.reshape((-1, 1, 3)), up.reshape((-1, 1, 3)), forward.reshape((-1, 1, 3))))
+
+    assert R.shape[1] == 3
+    assert R.shape[2] == 3
+
+    return up, forward, right, R.transpose((0, 2, 1))
 
 def get_angles_from_joints(joints):
 
