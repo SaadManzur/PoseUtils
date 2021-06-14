@@ -35,6 +35,7 @@ Contains methods for plotting and viewing different stats of the pose. Included 
 Transformation or normalization applied on the pose. Included -
 
 1. Torso normalization
+2. Skeletal normalization
 
 ## Common
 

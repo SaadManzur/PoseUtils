@@ -1,3 +1,5 @@
+0.2.5 - Normalizing skeleton by spine scaling [Jun 14, 2021]
+0.2.4 - Batch computation for torso normalization [May 30, 2021]
 0.2.3 - Body centered axes now supports computation in batches and some minor fixes [May 30, 2021]
 0.2.2 - Body centered axes and some refactoring [May 26, 2021]
 0.2.1 - Torso normalization, dataset indices [May 25, 2021]
