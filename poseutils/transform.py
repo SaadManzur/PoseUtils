@@ -1,6 +1,64 @@
 import numpy as np
 from poseutils.constants import *
 
+def normalize_zscore(X, mean, std, skip_root=False):
+
+    for i in range(X.shape[0]):
+        if not skip_root:
+            X[i, :] = np.divide(X[i, :] - mean[:], std[:])
+        else:
+            X[i, 1:] = np.divide(X[i, 1:] - mean[1:], std[1:])
+    
+    return X
+
+def unnormalize_zscore(X, mean, std, skip_root=False):
+
+    XX = np.zeros(X.shape)
+
+    for i in range(X.shape[0]):
+        if not skip_root:
+            XX[i, :] = np.multiply(X[i, :], std[:]) + mean[:]
+        else:
+            XX[i, 1:] = np.multiply(X[i, 1:], std[1:]) + mean[1:]
+
+    return XX
+
+def scale_bounding_area_to(X, bbox, low=0, high=256):
+
+    assert len(X.shape) == 3
+    assert X.shape[-1] == 2
+    assert bbox.shape[-1] == 4
+
+    half_max = (high - low)/2
+
+    half_width = (bbox[:, 2] - bbox[:, 0])/2
+    half_height = (bbox[:, 3] - bbox[:, 1])/2
+
+    metrics = np.vstack((half_width, half_height))
+
+    X_new = X - metrics.reshape((-1, 1, 2))
+
+    for i in range(X.shape[0]):
+        
+        scale_x = 1.0
+        scale_y = 1.0
+
+        if half_width[i] > half_height[i]:
+            scale_x = half_max / half_width[i]
+            scale_y = (half_height[i] / half_width[i]) * scale_x
+        else:
+            scale_y = half_max / half_height[i]
+            scale_x = (half_width[i] / half_height[i]) * scale_y
+
+        X_new[i, :, 0] *= scale_x
+        X_new[i, :, 1] *= scale_y
+
+        if i == 100:
+            print(half_width[i]*scale_x)
+            print(half_height[i]*scale_y)
+
+    return X_new
+
 def normalize_torso_2d(torso):
 
     #0: RH 1: LH 2: LS 3: RS

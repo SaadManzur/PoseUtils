@@ -201,3 +201,15 @@ def get_joints_from_angles(angles, bone_lengths):
             joints[child] = bone_lengths[idx]*vec + joints[current]
     
     return np.array(joints)
+
+def get_bounding_box_2d(joints):
+
+    assert joints.shape[-1] == 2
+    assert len(joints.shape) == 3
+
+    left_x = np.min(joints[:, :, 0], axis=1)-50
+    left_y = np.min(joints[:, :, 1], axis=1)-50
+    right_x = np.max(joints[:, :, 0], axis=1)+50
+    right_y = np.max(joints[:, :, 1], axis=1)+50
+
+    return left_x, left_y, right_x, right_y
