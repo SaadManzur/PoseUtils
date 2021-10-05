@@ -34,28 +34,27 @@ def scale_bounding_area_to(X, bbox, low=0, high=256):
     half_width = (bbox[:, 2] - bbox[:, 0])/2
     half_height = (bbox[:, 3] - bbox[:, 1])/2
 
-    metrics = np.vstack((half_width, half_height))
-
-    X_new = X - metrics.reshape((-1, 1, 2))
+    X_new = X - bbox[:, :2].reshape((-1, 1, 2))
 
     for i in range(X.shape[0]):
         
         scale_x = 1.0
         scale_y = 1.0
 
+        offset_x = 0
+        offset_y = 0
+
         if half_width[i] > half_height[i]:
             scale_x = half_max / half_width[i]
             scale_y = (half_height[i] / half_width[i]) * scale_x
+            offset_y = half_max - half_height[i] * scale_y
         else:
             scale_y = half_max / half_height[i]
             scale_x = (half_width[i] / half_height[i]) * scale_y
+            offset_x = half_max - half_width[i] * scale_x
 
-        X_new[i, :, 0] *= scale_x
-        X_new[i, :, 1] *= scale_y
-
-        if i == 100:
-            print(half_width[i]*scale_x)
-            print(half_height[i]*scale_y)
+        X_new[i, :, 0] = X_new[i, :, 0] * scale_x + offset_x
+        X_new[i, :, 1] = X_new[i, :, 1] * scale_y + offset_y
 
     return X_new
 

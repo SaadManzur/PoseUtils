@@ -7,7 +7,7 @@ setup(
     author='Saad Manzur',
     author_email='smanzur@uci.edu',
     license='LICENSE.txt',
-    packages=['poseutils'],
+    packages=['poseutils', 'poseutils.datasets', 'poseutils.datasets.unprocessed', 'poseutils.datasets.processed'],
     install_requires=['numpy', 'tqdm'],
 
     classifiers=[

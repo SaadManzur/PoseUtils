@@ -77,7 +77,7 @@ def dataset_indices(dataset_name, n_jnts):
     assert n_jnts == 14 or n_jnts == 16
 
     to_select = None
-    to_sort = None
+    to_sort = list(range(0, n_jnts))
 
     if dataset_name == "h36m":
 

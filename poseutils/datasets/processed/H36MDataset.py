@@ -159,7 +159,6 @@ class H36MDataset(object):
 
         return data
 
-    
     def root_center(self, data3d):
 
         return data3d - data3d[:, :1, :]

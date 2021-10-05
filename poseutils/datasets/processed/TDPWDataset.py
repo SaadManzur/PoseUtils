@@ -104,14 +104,14 @@ class TDPWDataset(object):
         self.mean_3d = np.mean(self._data_train['3d'], axis=0)
         self.std_3d = np.std(self._data_train['3d'], axis=0)
         
-        self._data_train['3d'] = normalize_data(self._data_train['3d'], self.mean_3d, self.std_3d, skip_root=True)
-        self._data_valid['3d'] = normalize_data(self._data_valid['3d'], self.mean_3d, self.std_3d, skip_root=True)
+        self._data_train['3d'] = normalize_zscore(self._data_train['3d'], self.mean_3d, self.std_3d, skip_root=True)
+        self._data_valid['3d'] = normalize_zscore(self._data_valid['3d'], self.mean_3d, self.std_3d, skip_root=True)
 
         if not self.skel_norm:
             self.mean_2d = np.mean(self._data_train['2d'], axis=0)
             self.std_2d = np.std(self._data_train['2d'], axis=0)
-            self._data_train['2d'] = normalize_data(self._data_train['2d'], self.mean_2d, self.std_2d, skip_root=self.center_2d)
-            self._data_valid['2d'] = normalize_data(self._data_valid['2d'], self.mean_2d, self.std_2d, skip_root=self.center_2d)
+            self._data_train['2d'] = normalize_zscore(self._data_train['2d'], self.mean_2d, self.std_2d, skip_root=self.center_2d)
+            self._data_valid['2d'] = normalize_zscore(self._data_valid['2d'], self.mean_2d, self.std_2d, skip_root=self.center_2d)
 
     def define_actions(self, action=None):
         all_actions = ["N"]
