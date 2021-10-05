@@ -45,3 +45,7 @@ def draw_skeleton(pose, ax, jnts_14=True):
             ax.plot([pose[u, 0], pose[v, 0]], [pose[u, 1], pose[v, 1]], zs=[pose[u, 2], pose[v, 2]], color=col_to_use)
         else:
             ax.plot([pose[u, 0], pose[v, 0]], [pose[u, 1], pose[v, 1]], color=col_to_use)
+
+def draw_bounding_box(lx, ly, rx, ry, ax):
+
+    ax.plot([lx, rx, rx, lx, lx], [ly, ly, ry, ry, ly], color='g')

@@ -2,7 +2,9 @@ LICENSE.txt
 README.md
 setup.py
 poseutils/__init__.py
+poseutils/camera_utils.py
 poseutils/common.py
+poseutils/composite.py
 poseutils/constants.py
 poseutils/metrics.py
 poseutils/props.py
@@ -13,3 +15,16 @@ poseutils.egg-info/SOURCES.txt
 poseutils.egg-info/dependency_links.txt
 poseutils.egg-info/requires.txt
 poseutils.egg-info/top_level.txt
+poseutils/datasets/__init__.py
+poseutils/datasets/processed/GPADataset.py
+poseutils/datasets/processed/H36MDataset.py
+poseutils/datasets/processed/MPI3DHPDataset.py
+poseutils/datasets/processed/SURREALDataset.py
+poseutils/datasets/processed/TDPWDataset.py
+poseutils/datasets/processed/__init__.py
+poseutils/datasets/unprocessed/GPADataset.py
+poseutils/datasets/unprocessed/H36MDataset.py
+poseutils/datasets/unprocessed/MPI3DHPDataset.py
+poseutils/datasets/unprocessed/SURREALDataset.py
+poseutils/datasets/unprocessed/TDPWDataset.py
+poseutils/datasets/unprocessed/__init__.py

@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='poseutils',
-    version='0.2.6',    
+    version='0.2.7',    
     description='A simple package containing common essentials for pose based research',
     author='Saad Manzur',
     author_email='smanzur@uci.edu',
