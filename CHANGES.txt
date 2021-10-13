@@ -1,4 +1,5 @@
-0.2.8 - Constants fixed for 3dhp
+0.2.9 - Constants fixed from previous version [Oct 13, 2021]
+0.2.8 - Constants fixed for 3dhp [Oct 13, 2021]
 0.2.6 - Adds dataset (processed and unprocessed), aspect ratio cropping and scaling [Oct 2, 2021]
 0.2.5 - Normalizing skeleton by spine scaling [Jun 14, 2021]
 0.2.4 - Batch computation for torso normalization [May 30, 2021]
