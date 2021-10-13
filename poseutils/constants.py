@@ -114,9 +114,9 @@ def dataset_indices(dataset_name, n_jnts):
     elif dataset_name == "3dhp":
         
         if n_jnts == 14:
-            to_select = [4, 23, 24, 25, 18, 19, 20, 5, 9, 10, 11, 14, 15, 16]
+            to_select = [4, 18, 19, 20, 23, 24, 25, 5, 14, 15, 16, 9, 10, 11]
         else:
-            to_select = [4, 23, 24, 25, 18, 19, 20, 3, 5, 6, 9, 10, 11, 14, 15, 16]
+            to_select = [4, 18, 19, 20, 23, 24, 25, 3, 5, 6, 14, 15, 16, 9, 10, 11]
 
     else:
         raise ValueError("Supports: h36m, gpa, 3dpw, surreal, 3dhp")
