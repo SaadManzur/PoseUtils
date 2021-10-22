@@ -2,12 +2,12 @@ from setuptools import setup
 
 setup(
     name='poseutils',
-    version='0.2.9',    
+    version='0.3.0',    
     description='A simple package containing common essentials for pose based research',
     author='Saad Manzur',
     author_email='smanzur@uci.edu',
     license='LICENSE.txt',
-    packages=['poseutils', 'poseutils.datasets', 'poseutils.datasets.unprocessed', 'poseutils.datasets.processed'],
+    packages=['poseutils', 'poseutils.datasets', 'poseutils.datasets.unprocessed', 'poseutils.datasets.transformation', 'poseutils.datasets.processed'],
     install_requires=['numpy', 'tqdm'],
 
     classifiers=[

@@ -1,6 +1,15 @@
 import numpy as np
 from poseutils.constants import *
 
+def root_center(X, root_idx=0):
+
+    assert len(X.shape) == 3 or len(X.shape) == 2
+
+    if len(X.shape) == 3:
+        return X - X[:, root_idx:root_idx+1, :]
+    else:
+        return X - X[root_idx:root_idx+1, :]
+
 def normalize_zscore(X, mean, std, skip_root=False):
 
     for i in range(X.shape[0]):

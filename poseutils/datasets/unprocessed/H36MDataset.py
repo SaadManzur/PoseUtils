@@ -5,7 +5,9 @@ import h5py
 import glob
 import numpy as np
 import poseutils.camera_utils as cameras
+from poseutils.logger import log
 from poseutils.constants import dataset_indices
+from poseutils.datasets.unprocessed.Dataset import Dataset
 
 parents = [-1, 0, 1, 2, 0, 4, 5, 0, 7, 8, 8, 10, 11, 8, 13, 14]
 joints_left = [4, 5, 6, 10, 11, 12]
@@ -35,17 +37,15 @@ NAMES_H36M[13] = 'RWrist'
 TRAIN_SUBJECTS = ['S0']
 TEST_SUBJECTS = ['S0']
 
-class H36MDataset(object):
+class H36MDataset(Dataset):
 
     def __init__(self, path):
         super(H36MDataset, self).__init__()
 
-        self.cameras = None
-
-        self._data_train = { "2d": None, "3d": None }
-        self._data_valid = { "2d": None, "3d": None }
-
-        self.cameras = []
+        self.actions = ["Directions","Discussion","Eating","Greeting",
+           "Phoning","Photo","Posing","Purchases",
+           "Sitting","SittingDown","Smoking","Waiting",
+           "WalkDog","Walking","WalkTogether"]
 
         self.load_data(path)
 
@@ -56,13 +56,11 @@ class H36MDataset(object):
         TRAIN_SUBJECTS = [1, 5, 6, 7, 8]
         TEST_SUBJECTS  = [9, 11]
 
-        actions = ["Directions","Discussion","Eating","Greeting",
-           "Phoning","Photo","Posing","Purchases",
-           "Sitting","SittingDown","Smoking","Waiting",
-           "WalkDog","Walking","WalkTogether"]
+        trainset = self.load_3d_data(path, TRAIN_SUBJECTS, self.actions)
+        testset = self.load_3d_data(path, TEST_SUBJECTS, self.actions)
 
-        trainset = self.load_3d_data(path, TRAIN_SUBJECTS, actions)
-        testset = self.load_3d_data(path, TEST_SUBJECTS, actions)
+        self._data_train['raw'] = trainset
+        self._data_valid['raw'] = testset
 
         d2d_train, _, d3d_train = self.project_to_cameras(trainset)
         d2d_valid, _, d3d_valid = self.project_to_cameras(testset)
@@ -72,7 +70,7 @@ class H36MDataset(object):
         self._data_valid['2d'] = d2d_valid
         self._data_valid['3d'] = d3d_valid
 
-        print("[PoseUtils] Loaded raw data")
+        log("Loaded raw data")
 
     def load_3d_data(self, path, subjects, actions):
 
@@ -81,7 +79,6 @@ class H36MDataset(object):
         total_data_points = 0
         for subj in subjects:
             for action in actions:
-                # print('Reading subject {0}, action {1}'.format(subj, action))
 
                 dpath = os.path.join( path, 'S{0}'.format(subj), 'MyPoses/3D_positions', '{0}*.h5'.format(action) )
 
@@ -137,27 +134,3 @@ class H36MDataset(object):
         t3d = np.vstack(t3d)
 
         return t2d, t2dc, t3d
-
-    def get_2d_valid(self, jnts=14):
-
-        to_select, to_sort = dataset_indices('h36m', jnts)
-
-        return self._data_valid['2d'][:, to_select, :][:, to_sort, :]
-
-    def get_3d_valid(self, jnts=14):
-
-        to_select, to_sort = dataset_indices('h36m', jnts)
-
-        return self._data_valid['3d'][:, to_select, :][:, to_sort, :]
-    
-    def get_2d_train(self, jnts=14):
-
-        to_select, to_sort = dataset_indices('h36m', jnts)
-
-        return self._data_train['2d'][:, to_select, :][:, to_sort, :]
-
-    def get_3d_train(self, jnts=14):
-
-        to_select, to_sort = dataset_indices('h36m', jnts)
-
-        return self._data_train['3d'][:, to_select, :][:, to_sort, :]
