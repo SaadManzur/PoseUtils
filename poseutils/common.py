@@ -39,7 +39,7 @@ def calc_angle_360(v1, v2, n):
         :param n: Vector Nx1 or 1xN
         :type n: numpy.ndarray
         :return: Angle in degrees
-        :rtype: degree
+        :rtype: float
     """
     
     x = np.cross(v1, v2)

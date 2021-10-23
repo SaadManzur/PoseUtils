@@ -1,0 +1,254 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>poseutils.constants &#8212; PoseUtils 0.3.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css" />
+    
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PoseUtils 0.3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">poseutils.constants</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for poseutils.constants</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .. data:: NAMES_14</span>
+<span class="sd">        Edge/bone names for 14 joint configuration</span>
+<span class="sd">    .. data:: NAMES_16</span>
+<span class="sd">        Edge/bone names for 16 joint configuration</span>
+<span class="sd">    .. data:: EDGES_14</span>
+<span class="sd">        Edge list for 14 joint configuration</span>
+<span class="sd">    .. data:: LEFTS_14</span>
+<span class="sd">        Left side indices of the skeleton for 14 joint configuration</span>
+<span class="sd">    .. data:: RIGHTS_14</span>
+<span class="sd">        Right side indices of the skeleton for 14 joint configuration</span>
+<span class="sd">    .. data:: EDGES_16</span>
+<span class="sd">        Edge list for 16 joint configuration</span>
+<span class="sd">    .. data:: LEFTS_16</span>
+<span class="sd">        Left side indices of the skeleton for 16 joint configuration</span>
+<span class="sd">    .. data:: RIGHTS_16</span>
+<span class="sd">        Right side indices of the skeleton for 16 joint configuration</span>
+<span class="sd">    .. data:: EDGE_NAMES_16JNTS</span>
+<span class="sd">        Edge/bone names for 16 joint configuration</span>
+<span class="sd">    .. data:: EDGE_NAMES_14JNTS</span>
+<span class="sd">        Edge/bone names for 14 joint configuration</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">NAMES_14</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">14</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Hip&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RHip&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RKnee&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RAnkle&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LHip&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LKnee&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LAnkle&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Neck&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LUpperArm&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LElbow&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LWrist&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RUpperArm&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RElbow&#39;</span>
+<span class="n">NAMES_14</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RWrist&#39;</span>
+
+<span class="n">NAMES_16</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">16</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Hip&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RHip&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RKnee&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RAnkle&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LHip&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LKnee&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LAnkle&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Spine&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Neck&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Head&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LUpperArm&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LElbow&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LWrist&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RUpperArm&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RElbow&#39;</span>
+<span class="n">NAMES_16</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;RWrist&#39;</span>
+
+<span class="n">EDGES_14</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]]</span>
+<span class="n">LEFTS_14</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">RIGHTS_14</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>
+
+<span class="n">EDGES_16</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">],</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]]</span>
+<span class="n">LEFTS_16</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">RIGHTS_16</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>
+
+<span class="n">EDGE_NAMES_16JNTS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HipRhip&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;RFemur&#39;</span><span class="p">,</span> <span class="s1">&#39;RTibia&#39;</span><span class="p">,</span> <span class="s1">&#39;HipLHip&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;LFemur&#39;</span><span class="p">,</span> <span class="s1">&#39;LTibia&#39;</span><span class="p">,</span> <span class="s1">&#39;LowerSpine&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;UpperSpine&#39;</span><span class="p">,</span> <span class="s1">&#39;NeckHead&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;LShoulder&#39;</span><span class="p">,</span> <span class="s1">&#39;LHumerus&#39;</span><span class="p">,</span> <span class="s1">&#39;LRadioUlnar&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;RShoulder&#39;</span><span class="p">,</span> <span class="s1">&#39;RHumerus&#39;</span><span class="p">,</span> <span class="s1">&#39;RRadioUlnar&#39;</span><span class="p">]</span>
+
+<span class="n">EDGE_NAMES_14JNTS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HipRhip&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;RFemur&#39;</span><span class="p">,</span> <span class="s1">&#39;RTibia&#39;</span><span class="p">,</span> <span class="s1">&#39;HipLHip&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;LFemur&#39;</span><span class="p">,</span> <span class="s1">&#39;LTibia&#39;</span><span class="p">,</span> <span class="s1">&#39;HipNeck&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;LShoulder&#39;</span><span class="p">,</span> <span class="s1">&#39;LHumerus&#39;</span><span class="p">,</span> <span class="s1">&#39;LRadioUlnar&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;RShoulder&#39;</span><span class="p">,</span> <span class="s1">&#39;RHumerus&#39;</span><span class="p">,</span> <span class="s1">&#39;RRadioUlnar&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="adjacency_list"><a class="viewcode-back" href="../../index.html#poseutils.constants.adjacency_list">[docs]</a><span class="k">def</span> <span class="nf">adjacency_list</span><span class="p">(</span><span class="n">n_jnts</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a adjacency list arranged in parent -&gt; [children list] format either 14 or 16 joint configuration.</span>
+
+<span class="sd">        :param n_jnts: Number of joints, either 14 or 16</span>
+<span class="sd">        :type n_jnts: int</span>
+<span class="sd">        :raises ValueError: If any other joint configuration is requested</span>
+<span class="sd">        :return: Adjacency list (n_jnts, [])</span>
+<span class="sd">        :rtype: list(list(int))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">n_jnts</span> <span class="o">==</span> <span class="mi">14</span><span class="p">:</span>
+        <span class="n">edges</span> <span class="o">=</span> <span class="n">EDGES_14</span>
+    <span class="k">elif</span> <span class="n">n_jnts</span> <span class="o">==</span> <span class="mi">16</span><span class="p">:</span>
+        <span class="n">edges</span> <span class="o">=</span> <span class="n">EDGES_16</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only 14 or 16 joint cofigs&quot;</span><span class="p">)</span>
+
+    <span class="n">adjacency</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_jnts</span><span class="p">):</span>
+        <span class="n">adjacency</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">adjacency</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">adjacency</span></div>
+
+<div class="viewcode-block" id="dataset_indices"><a class="viewcode-back" href="../../index.html#poseutils.constants.dataset_indices">[docs]</a><span class="k">def</span> <span class="nf">dataset_indices</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">n_jnts</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns either 14 or 16 joint configuration indices for specified dataset. Supports `h36m, gpa, 3dpw, surreal, 3dhp`. It returns indices to pick from the full dataset and rearrange them to ensure consistency.</span>
+
+<span class="sd">        :param dataset_name: Name of the dataset. Supports `h36m, gpa, 3dpw, surreal, 3dhp`</span>
+<span class="sd">        :type dataset_name: str</span>
+<span class="sd">        :param n_jnts: Number of joint configuration to return. Either 14 or 16.</span>
+<span class="sd">        :type n_jnts: int</span>
+<span class="sd">        :raises ValueError: If the dataset name provided is not supported.</span>
+<span class="sd">        :return: </span>
+<span class="sd">            - to_select: List of selection indices [n_jnts]</span>
+<span class="sd">            - to_sort: List of sorting order [n_jnts]</span>
+<span class="sd">        :rtype: tuple(list(int), list(int))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">assert</span> <span class="n">n_jnts</span> <span class="o">==</span> <span class="mi">14</span> <span class="ow">or</span> <span class="n">n_jnts</span> <span class="o">==</span> <span class="mi">16</span>
+
+    <span class="n">to_select</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">to_sort</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_jnts</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">dataset_name</span> <span class="o">==</span> <span class="s2">&quot;h36m&quot;</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">n_jnts</span> <span class="o">==</span> <span class="mi">14</span><span class="p">:</span>
+            <span class="n">to_select</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">to_select</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">]</span>
+    
+    <span class="k">elif</span> <span class="n">dataset_name</span> <span class="o">==</span> <span class="s2">&quot;gpa&quot;</span><span class="p">:</span>
+
+        <span class="n">to_select</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">n_jnts</span> <span class="o">==</span> <span class="mi">14</span><span class="p">:</span>    
+            <span class="n">to_sort</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">to_sort</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+        
+    <span class="k">elif</span> <span class="n">dataset_name</span> <span class="o">==</span> <span class="s2">&quot;3dpw&quot;</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">n_jnts</span> <span class="o">==</span> <span class="mi">14</span><span class="p">:</span>
+            <span class="n">to_select</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">to_select</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+
+    <span class="k">elif</span> <span class="n">dataset_name</span> <span class="o">==</span> <span class="s2">&quot;surreal&quot;</span><span class="p">:</span>
+
+        <span class="n">to_select</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">n_jnts</span> <span class="o">==</span> <span class="mi">14</span><span class="p">:</span>
+            <span class="n">to_sort</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">to_sort</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+
+    <span class="k">elif</span> <span class="n">dataset_name</span> <span class="o">==</span> <span class="s2">&quot;3dhp&quot;</span><span class="p">:</span>
+        
+        <span class="k">if</span> <span class="n">n_jnts</span> <span class="o">==</span> <span class="mi">14</span><span class="p">:</span>
+            <span class="n">to_select</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">to_select</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Supports: h36m, gpa, 3dpw, surreal, 3dhp&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">to_select</span><span class="p">,</span> <span class="n">to_sort</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PoseUtils 0.3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">poseutils.constants</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Saad Manzur.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+  </body>
+</html>

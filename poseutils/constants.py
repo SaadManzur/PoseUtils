@@ -1,3 +1,26 @@
+"""
+    .. data:: NAMES_14
+        Edge/bone names for 14 joint configuration
+    .. data:: NAMES_16
+        Edge/bone names for 16 joint configuration
+    .. data:: EDGES_14
+        Edge list for 14 joint configuration
+    .. data:: LEFTS_14
+        Left side indices of the skeleton for 14 joint configuration
+    .. data:: RIGHTS_14
+        Right side indices of the skeleton for 14 joint configuration
+    .. data:: EDGES_16
+        Edge list for 16 joint configuration
+    .. data:: LEFTS_16
+        Left side indices of the skeleton for 16 joint configuration
+    .. data:: RIGHTS_16
+        Right side indices of the skeleton for 16 joint configuration
+    .. data:: EDGE_NAMES_16JNTS
+        Edge/bone names for 16 joint configuration
+    .. data:: EDGE_NAMES_14JNTS
+        Edge/bone names for 14 joint configuration
+"""
+
 NAMES_14 = ['']*14
 NAMES_14[0] = 'Hip'
 NAMES_14[1] = 'RHip'
@@ -54,6 +77,14 @@ EDGE_NAMES_14JNTS = ['HipRhip',
               'RShoulder', 'RHumerus', 'RRadioUlnar']
 
 def adjacency_list(n_jnts):
+    """Returns a adjacency list arranged in parent -> [children list] format either 14 or 16 joint configuration.
+
+        :param n_jnts: Number of joints, either 14 or 16
+        :type n_jnts: int
+        :raises ValueError: If any other joint configuration is requested
+        :return: Adjacency list (n_jnts, [])
+        :rtype: list(list(int))
+    """
 
     if n_jnts == 14:
         edges = EDGES_14
@@ -73,6 +104,18 @@ def adjacency_list(n_jnts):
     return adjacency
 
 def dataset_indices(dataset_name, n_jnts):
+    """Returns either 14 or 16 joint configuration indices for specified dataset. Supports `h36m, gpa, 3dpw, surreal, 3dhp`. It returns indices to pick from the full dataset and rearrange them to ensure consistency.
+
+        :param dataset_name: Name of the dataset. Supports `h36m, gpa, 3dpw, surreal, 3dhp`
+        :type dataset_name: str
+        :param n_jnts: Number of joint configuration to return. Either 14 or 16.
+        :type n_jnts: int
+        :raises ValueError: If the dataset name provided is not supported.
+        :return: 
+            - to_select: List of selection indices [n_jnts]
+            - to_sort: List of sorting order [n_jnts]
+        :rtype: tuple(list(int), list(int))
+    """
 
     assert n_jnts == 14 or n_jnts == 16
 

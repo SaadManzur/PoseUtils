@@ -1,0 +1,248 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>poseutils.datasets.processed package &#8212; PoseUtils 0.3.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">PoseUtils 0.3.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">poseutils.datasets.processed package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="poseutils-datasets-processed-package">
+<h1>poseutils.datasets.processed package<a class="headerlink" href="#poseutils-datasets-processed-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-poseutils.datasets.processed.TransformedDataset">
+<span id="poseutils-datasets-processed-transformeddataset-module"></span><h2>poseutils.datasets.processed.TransformedDataset module<a class="headerlink" href="#module-poseutils.datasets.processed.TransformedDataset" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="poseutils.datasets.processed.TransformedDataset.TransformedDataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">poseutils.datasets.processed.TransformedDataset.</span></span><span class="sig-name descname"><span class="pre">TransformedDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformations2d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformations3d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">njnts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poseutils/datasets/processed/TransformedDataset.html#TransformedDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.processed.TransformedDataset.TransformedDataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class takes a unprocessed dataset and applies different transformations to it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>poseutils.datasets.unprocessed.Dataset</em><em>, </em><em>optional</em>) – Unprocessed dataset, defaults to None</p></li>
+<li><p><strong>transformations2d</strong> (<em>list</em><em>(</em><em>poseutils.datasets.transformation.Transformation</em><em>)</em><em>, </em><em>defaults to</em><em> [</em><em>]</em>) – List of transformations to apply on 2d data</p></li>
+<li><p><strong>transformations3d</strong> (<em>list</em><em>(</em><em>poseutils.datasets.transformation.Transformation</em><em>)</em><em>, </em><em>optional</em>) – List of transformations to apply on 3d data, defaults to []</p></li>
+<li><p><strong>njnts</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of joints i.e. joint configuration (14 or 16), defaults to 14</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.processed.TransformedDataset.TransformedDataset.apply2d">
+<span class="sig-name descname"><span class="pre">apply2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poseutils/datasets/processed/TransformedDataset.html#TransformedDataset.apply2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.processed.TransformedDataset.TransformedDataset.apply2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies transformations to the 2d dataset (both training and validation)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>transformations</strong> (<em>list</em><em>(</em><em>poseutils.datasets.transformation.Transformation</em><em>)</em>) – List of transformations to apply on 2d data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.processed.TransformedDataset.TransformedDataset.apply3d">
+<span class="sig-name descname"><span class="pre">apply3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poseutils/datasets/processed/TransformedDataset.html#TransformedDataset.apply3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.processed.TransformedDataset.TransformedDataset.apply3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies transformations to the 3d dataset (both training and validation)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>transformations</strong> (<em>list</em><em>(</em><em>poseutils.datasets.transformation.Transformation</em><em>)</em>) – List of transformations to apply on 3d data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.processed.TransformedDataset.TransformedDataset.calculate_metrics">
+<span class="sig-name descname"><span class="pre">calculate_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poseutils/datasets/processed/TransformedDataset.html#TransformedDataset.calculate_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.processed.TransformedDataset.TransformedDataset.calculate_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates mean and standard devation from the training dataset (2d and 3d)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_2d_train">
+<span class="sig-name descname"><span class="pre">get_2d_train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poseutils/datasets/processed/TransformedDataset.html#TransformedDataset.get_2d_train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_2d_train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2d training data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Joint positions 2d (NxMx2), M = 14 or 16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_2d_valid">
+<span class="sig-name descname"><span class="pre">get_2d_valid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poseutils/datasets/processed/TransformedDataset.html#TransformedDataset.get_2d_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_2d_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2d validation data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Joint positions 2d (NxMx2), M = 14 or 16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_3d_train">
+<span class="sig-name descname"><span class="pre">get_3d_train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poseutils/datasets/processed/TransformedDataset.html#TransformedDataset.get_3d_train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_3d_train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 3d training data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Joint positions 3d (NxMx3), M = 14 or 16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_3d_valid">
+<span class="sig-name descname"><span class="pre">get_3d_valid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poseutils/datasets/processed/TransformedDataset.html#TransformedDataset.get_3d_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_3d_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 3d validation data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Joint positions 3d (NxMx3), M = 14 or 16</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.processed.TransformedDataset.TransformedDataset.set_train">
+<span class="sig-name descname"><span class="pre">set_train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d2d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d3d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poseutils/datasets/processed/TransformedDataset.html#TransformedDataset.set_train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.processed.TransformedDataset.TransformedDataset.set_train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set training data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d2d</strong> (<em>numpy.ndarray</em>) – 2d data to set (NxMx2), M = 14 or 16</p></li>
+<li><p><strong>d3d</strong> (<em>numpy.ndarray</em>) – 3d data to set (NxMx3), M = 14 or 16</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.processed.TransformedDataset.TransformedDataset.set_valid">
+<span class="sig-name descname"><span class="pre">set_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d2d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d3d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poseutils/datasets/processed/TransformedDataset.html#TransformedDataset.set_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.processed.TransformedDataset.TransformedDataset.set_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set validation data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d2d</strong> (<em>numpy.ndarray</em>) – 2d data to set (NxMx2), M = 14 or 16</p></li>
+<li><p><strong>d3d</strong> (<em>numpy.ndarray</em>) – 3d data to set (NxMx3), M = 14 or 16</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.processed.TransformedDataset.TransformedDataset.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poseutils/datasets/processed/TransformedDataset.html#TransformedDataset.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.processed.TransformedDataset.TransformedDataset.transform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-poseutils.datasets.processed">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-poseutils.datasets.processed" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">poseutils.datasets.processed package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-poseutils.datasets.processed.TransformedDataset">poseutils.datasets.processed.TransformedDataset module</a></li>
+<li><a class="reference internal" href="#module-poseutils.datasets.processed">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/poseutils.datasets.processed.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">PoseUtils 0.3.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">poseutils.datasets.processed package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Saad Manzur.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+  </body>
+</html>

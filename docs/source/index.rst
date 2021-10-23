@@ -10,20 +10,7 @@ Welcome to PoseUtils's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-Common
-======
-.. automodule:: poseutils.common
-   :members:
-
-View
-====
-.. automodule:: poseutils.view
-   :members:
-
-Transform
-=========
-.. automodule:: poseutils.transform
-   :members:
+   modules
 
 Indices and tables
 ==================
