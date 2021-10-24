@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>poseutils.datasets.unprocessed package &mdash; PoseUtils 0.3.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="poseutils.datasets.transformation package" href="poseutils.datasets.transformation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PoseUtils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">poseutils</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="poseutils.html">poseutils package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="poseutils.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="poseutils.datasets.html">poseutils.datasets package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.html#module-poseutils.camera_utils">poseutils.camera_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.html#module-poseutils.common">poseutils.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.html#module-poseutils.composite">poseutils.composite module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.html#module-poseutils.constants">poseutils.constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.html#module-poseutils.logger">poseutils.logger module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.html#module-poseutils.metrics">poseutils.metrics module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.html#module-poseutils.props">poseutils.props module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.html#module-poseutils.transform">poseutils.transform module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.html#module-poseutils.view">poseutils.view module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.html#module-poseutils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PoseUtils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">poseutils</a> &raquo;</li>
+          <li><a href="poseutils.html">poseutils package</a> &raquo;</li>
+          <li><a href="poseutils.datasets.html">poseutils.datasets package</a> &raquo;</li>
+      <li>poseutils.datasets.unprocessed package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/poseutils.datasets.unprocessed.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="poseutils-datasets-unprocessed-package">
+<h1>poseutils.datasets.unprocessed package<a class="headerlink" href="#poseutils-datasets-unprocessed-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-poseutils.datasets.unprocessed.Dataset">
+<span id="poseutils-datasets-unprocessed-dataset-module"></span><h2>poseutils.datasets.unprocessed.Dataset module<a class="headerlink" href="#module-poseutils.datasets.unprocessed.Dataset" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.Dataset.Dataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">poseutils.datasets.unprocessed.Dataset.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/Dataset.html#Dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.Dataset.Dataset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Unprocessed dataset base class. Contains common methods shared across all dataset classes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.Dataset.Dataset.get_2d_train">
+<span class="sig-name descname"><span class="pre">get_2d_train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jnts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/Dataset.html#Dataset.get_2d_train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.Dataset.Dataset.get_2d_train" title="Permalink to this definition"></a></dt>
+<dd><p>Returns 2d train data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>jnts</strong> (<em>int</em><em>, </em><em>optional</em>) – Joint configuration (14 or 16), defaults to 14</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Selected and sorted joint positions (NxMx2), M = 14 or 16</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.Dataset.Dataset.get_2d_valid">
+<span class="sig-name descname"><span class="pre">get_2d_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jnts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/Dataset.html#Dataset.get_2d_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.Dataset.Dataset.get_2d_valid" title="Permalink to this definition"></a></dt>
+<dd><p>Returns 2d valid data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>jnts</strong> (<em>int</em><em>, </em><em>optional</em>) – Joint configuration (14 or 16), defaults to 14</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Selected and sorted joint positions (NxMx2), M = 14 or 16</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.Dataset.Dataset.get_3d_train">
+<span class="sig-name descname"><span class="pre">get_3d_train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jnts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/Dataset.html#Dataset.get_3d_train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.Dataset.Dataset.get_3d_train" title="Permalink to this definition"></a></dt>
+<dd><p>Returns 3d train data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>jnts</strong> (<em>int</em><em>, </em><em>optional</em>) – Joint configuration (14 or 16), defaults to 14</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Selected and sorted joint positions (NxMx3), M = 14 or 16</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.Dataset.Dataset.get_3d_valid">
+<span class="sig-name descname"><span class="pre">get_3d_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jnts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/Dataset.html#Dataset.get_3d_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.Dataset.Dataset.get_3d_valid" title="Permalink to this definition"></a></dt>
+<dd><p>Returns 3d valid data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>jnts</strong> (<em>int</em><em>, </em><em>optional</em>) – Joint configuration (14 or 16), defaults to 14</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Selected and sorted joint positions (NxMx3), M = 14 or 16</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-poseutils.datasets.unprocessed.GPADataset">
+<span id="poseutils-datasets-unprocessed-gpadataset-module"></span><h2>poseutils.datasets.unprocessed.GPADataset module<a class="headerlink" href="#module-poseutils.datasets.unprocessed.GPADataset" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.GPADataset.GPADataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">poseutils.datasets.unprocessed.GPADataset.</span></span><span class="sig-name descname"><span class="pre">GPADataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/GPADataset.html#GPADataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.GPADataset.GPADataset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#poseutils.datasets.unprocessed.Dataset.Dataset" title="poseutils.datasets.unprocessed.Dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">poseutils.datasets.unprocessed.Dataset.Dataset</span></code></a></p>
+<p>Dataset class for handling GPA dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – path to npz file</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.GPADataset.GPADataset.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/GPADataset.html#GPADataset.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.GPADataset.GPADataset.load_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-poseutils.datasets.unprocessed.H36MDataset">
+<span id="poseutils-datasets-unprocessed-h36mdataset-module"></span><h2>poseutils.datasets.unprocessed.H36MDataset module<a class="headerlink" href="#module-poseutils.datasets.unprocessed.H36MDataset" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.H36MDataset.H36MDataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">poseutils.datasets.unprocessed.H36MDataset.</span></span><span class="sig-name descname"><span class="pre">H36MDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/H36MDataset.html#H36MDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.H36MDataset.H36MDataset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#poseutils.datasets.unprocessed.Dataset.Dataset" title="poseutils.datasets.unprocessed.Dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">poseutils.datasets.unprocessed.Dataset.Dataset</span></code></a></p>
+<p>Dataset class for H36M dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Base directory path to h36m files with cameras.h5</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.H36MDataset.H36MDataset.load_3d_data">
+<span class="sig-name descname"><span class="pre">load_3d_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subjects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/H36MDataset.html#H36MDataset.load_3d_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.H36MDataset.H36MDataset.load_3d_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.H36MDataset.H36MDataset.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/H36MDataset.html#H36MDataset.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.H36MDataset.H36MDataset.load_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.H36MDataset.H36MDataset.project_to_cameras">
+<span class="sig-name descname"><span class="pre">project_to_cameras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">poses_set</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/H36MDataset.html#H36MDataset.project_to_cameras"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.H36MDataset.H36MDataset.project_to_cameras" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-poseutils.datasets.unprocessed.MPI3DHPDataset">
+<span id="poseutils-datasets-unprocessed-mpi3dhpdataset-module"></span><h2>poseutils.datasets.unprocessed.MPI3DHPDataset module<a class="headerlink" href="#module-poseutils.datasets.unprocessed.MPI3DHPDataset" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.MPI3DHPDataset.MPI3DHPDataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">poseutils.datasets.unprocessed.MPI3DHPDataset.</span></span><span class="sig-name descname"><span class="pre">MPI3DHPDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/MPI3DHPDataset.html#MPI3DHPDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.MPI3DHPDataset.MPI3DHPDataset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#poseutils.datasets.unprocessed.Dataset.Dataset" title="poseutils.datasets.unprocessed.Dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">poseutils.datasets.unprocessed.Dataset.Dataset</span></code></a></p>
+<p>Dataset class for 3DHP dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Path to compiled npz files for 3dhp dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.MPI3DHPDataset.MPI3DHPDataset.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/MPI3DHPDataset.html#MPI3DHPDataset.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.MPI3DHPDataset.MPI3DHPDataset.load_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.MPI3DHPDataset.MPI3DHPDataset.split_train_test">
+<span class="sig-name descname"><span class="pre">split_train_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/MPI3DHPDataset.html#MPI3DHPDataset.split_train_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.MPI3DHPDataset.MPI3DHPDataset.split_train_test" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-poseutils.datasets.unprocessed.SURREALDataset">
+<span id="poseutils-datasets-unprocessed-surrealdataset-module"></span><h2>poseutils.datasets.unprocessed.SURREALDataset module<a class="headerlink" href="#module-poseutils.datasets.unprocessed.SURREALDataset" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.SURREALDataset.SURREALDataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">poseutils.datasets.unprocessed.SURREALDataset.</span></span><span class="sig-name descname"><span class="pre">SURREALDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_valid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/SURREALDataset.html#SURREALDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.SURREALDataset.SURREALDataset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#poseutils.datasets.unprocessed.Dataset.Dataset" title="poseutils.datasets.unprocessed.Dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">poseutils.datasets.unprocessed.Dataset.Dataset</span></code></a></p>
+<p>Dataset class for SURREAL dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_train</strong> (<em>str</em>) – Path to surreal training set npz</p></li>
+<li><p><strong>path_valid</strong> (<em>str</em>) – Path to validation set npz</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.SURREALDataset.SURREALDataset.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_valid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/SURREALDataset.html#SURREALDataset.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.SURREALDataset.SURREALDataset.load_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-poseutils.datasets.unprocessed.TDPWDataset">
+<span id="poseutils-datasets-unprocessed-tdpwdataset-module"></span><h2>poseutils.datasets.unprocessed.TDPWDataset module<a class="headerlink" href="#module-poseutils.datasets.unprocessed.TDPWDataset" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.TDPWDataset.TDPWDataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">poseutils.datasets.unprocessed.TDPWDataset.</span></span><span class="sig-name descname"><span class="pre">TDPWDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/TDPWDataset.html#TDPWDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.TDPWDataset.TDPWDataset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#poseutils.datasets.unprocessed.Dataset.Dataset" title="poseutils.datasets.unprocessed.Dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">poseutils.datasets.unprocessed.Dataset.Dataset</span></code></a></p>
+<p>Dataset class for handling 3DPW dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – path to npz file</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="poseutils.datasets.unprocessed.TDPWDataset.TDPWDataset.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/datasets/unprocessed/TDPWDataset.html#TDPWDataset.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.datasets.unprocessed.TDPWDataset.TDPWDataset.load_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-poseutils.datasets.unprocessed">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-poseutils.datasets.unprocessed" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="poseutils.datasets.transformation.html" class="btn btn-neutral float-left" title="poseutils.datasets.transformation package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Saad Manzur.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

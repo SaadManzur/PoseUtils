@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>poseutils.datasets.processed.TransformedDataset &mdash; PoseUtils 0.3.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> PoseUtils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">poseutils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">PoseUtils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      <li>poseutils.datasets.processed.TransformedDataset</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for poseutils.datasets.processed.TransformedDataset</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">poseutils.datasets.unprocessed.Dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">poseutils.datasets.transformation.CalculateMetrics</span> <span class="kn">import</span> <span class="n">CalculateMetrics</span>
+
+<div class="viewcode-block" id="TransformedDataset"><a class="viewcode-back" href="../../../../poseutils.datasets.processed.html#poseutils.datasets.processed.TransformedDataset.TransformedDataset">[docs]</a><span class="k">class</span> <span class="nc">TransformedDataset</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This class takes a unprocessed dataset and applies different transformations to it.</span>
+
+<span class="sd">        :param dataset: Unprocessed dataset, defaults to None</span>
+<span class="sd">        :type dataset: poseutils.datasets.unprocessed.Dataset, optional</span>
+<span class="sd">        :param transformations2d: List of transformations to apply on 2d data</span>
+<span class="sd">        :type transformations2d: list(poseutils.datasets.transformation.Transformation), defaults to []</span>
+<span class="sd">        :param transformations3d: List of transformations to apply on 3d data, defaults to []</span>
+<span class="sd">        :type transformations3d: list(poseutils.datasets.transformation.Transformation), optional</span>
+<span class="sd">        :param njnts: Number of joints i.e. joint configuration (14 or 16), defaults to 14</span>
+<span class="sd">        :type njnts: int, optional</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transformations2d</span><span class="o">=</span><span class="p">[],</span> <span class="n">transformations3d</span><span class="o">=</span><span class="p">[],</span> <span class="n">njnts</span><span class="o">=</span><span class="mi">14</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TransformedDataset</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_train</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;2d&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;3d&quot;</span><span class="p">:</span> <span class="kc">None</span> <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_valid</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;2d&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;3d&quot;</span><span class="p">:</span> <span class="kc">None</span> <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">dataset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_train</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">get_2d_train</span><span class="p">(</span><span class="n">njnts</span><span class="p">),</span> <span class="n">dataset</span><span class="o">.</span><span class="n">get_3d_train</span><span class="p">(</span><span class="n">njnts</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_valid</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">get_2d_valid</span><span class="p">(</span><span class="n">njnts</span><span class="p">),</span> <span class="n">dataset</span><span class="o">.</span><span class="n">get_3d_valid</span><span class="p">(</span><span class="n">njnts</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">means</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;2d&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;3d&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stds</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;2d&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;3d&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformations2d</span> <span class="o">=</span> <span class="n">transformations2d</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformations3d</span> <span class="o">=</span> <span class="n">transformations3d</span>
+
+
+<div class="viewcode-block" id="TransformedDataset.set_train"><a class="viewcode-back" href="../../../../poseutils.datasets.processed.html#poseutils.datasets.processed.TransformedDataset.TransformedDataset.set_train">[docs]</a>    <span class="k">def</span> <span class="nf">set_train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d2d</span><span class="p">,</span> <span class="n">d3d</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set training data</span>
+
+<span class="sd">            :param d2d: 2d data to set (NxMx2), M = 14 or 16</span>
+<span class="sd">            :type d2d: numpy.ndarray</span>
+<span class="sd">            :param d3d: 3d data to set (NxMx3), M = 14 or 16</span>
+<span class="sd">            :type d3d: numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_train</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d2d</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_train</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d3d</span></div>
+
+<div class="viewcode-block" id="TransformedDataset.set_valid"><a class="viewcode-back" href="../../../../poseutils.datasets.processed.html#poseutils.datasets.processed.TransformedDataset.TransformedDataset.set_valid">[docs]</a>    <span class="k">def</span> <span class="nf">set_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d2d</span><span class="p">,</span> <span class="n">d3d</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set validation data</span>
+
+<span class="sd">            :param d2d: 2d data to set (NxMx2), M = 14 or 16</span>
+<span class="sd">            :type d2d: numpy.ndarray</span>
+<span class="sd">            :param d3d: 3d data to set (NxMx3), M = 14 or 16</span>
+<span class="sd">            :type d3d: numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_valid</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d2d</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_valid</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d3d</span></div>
+
+<div class="viewcode-block" id="TransformedDataset.calculate_metrics"><a class="viewcode-back" href="../../../../poseutils.datasets.processed.html#poseutils.datasets.processed.TransformedDataset.TransformedDataset.calculate_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculates mean and standard devation from the training dataset (2d and 3d)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">d2d</span><span class="p">,</span> <span class="n">d3d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_train</span><span class="p">[</span><span class="s1">&#39;2d&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_train</span><span class="p">[</span><span class="s1">&#39;3d&#39;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">means</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">stds</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">d2d</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">d2d</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">means</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">stds</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">d3d</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">d3d</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TransformedDataset.transform"><a class="viewcode-back" href="../../../../poseutils.datasets.processed.html#poseutils.datasets.processed.TransformedDataset.TransformedDataset.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply2d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transformations2d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply3d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transformations3d</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TransformedDataset.apply2d"><a class="viewcode-back" href="../../../../poseutils.datasets.processed.html#poseutils.datasets.processed.TransformedDataset.TransformedDataset.apply2d">[docs]</a>    <span class="k">def</span> <span class="nf">apply2d</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transformations</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Applies transformations to the 2d dataset (both training and validation)</span>
+
+<span class="sd">            :param transformations: List of transformations to apply on 2d data</span>
+<span class="sd">            :type transformations: list(poseutils.datasets.transformation.Transformation)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">transformation</span> <span class="ow">in</span> <span class="n">transformations</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">transformation</span><span class="p">,</span> <span class="n">CalculateMetrics</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">calculate_metrics</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_data_train</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">transformation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data_train</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">],</span> <span class="n">mean</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">means</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stds</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_data_valid</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">transformation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data_valid</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">],</span> <span class="n">mean</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">means</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stds</span><span class="p">[</span><span class="s2">&quot;2d&quot;</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="TransformedDataset.apply3d"><a class="viewcode-back" href="../../../../poseutils.datasets.processed.html#poseutils.datasets.processed.TransformedDataset.TransformedDataset.apply3d">[docs]</a>    <span class="k">def</span> <span class="nf">apply3d</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transformations</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Applies transformations to the 3d dataset (both training and validation)</span>
+
+<span class="sd">            :param transformations: List of transformations to apply on 3d data</span>
+<span class="sd">            :type transformations: list(poseutils.datasets.transformation.Transformation)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">transformation</span> <span class="ow">in</span> <span class="n">transformations</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">transformation</span><span class="p">,</span> <span class="n">CalculateMetrics</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">calculate_metrics</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_data_train</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">transformation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data_train</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">],</span> <span class="n">mean</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">means</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stds</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_data_valid</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">transformation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data_valid</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">],</span> <span class="n">mean</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">means</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stds</span><span class="p">[</span><span class="s2">&quot;3d&quot;</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="TransformedDataset.get_2d_train"><a class="viewcode-back" href="../../../../poseutils.datasets.processed.html#poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_2d_train">[docs]</a>    <span class="k">def</span> <span class="nf">get_2d_train</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns 2d training data</span>
+
+<span class="sd">            :return: Joint positions 2d (NxMx2), M = 14 or 16</span>
+<span class="sd">            :rtype: numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_train</span><span class="p">[</span><span class="s1">&#39;2d&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="TransformedDataset.get_2d_valid"><a class="viewcode-back" href="../../../../poseutils.datasets.processed.html#poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_2d_valid">[docs]</a>    <span class="k">def</span> <span class="nf">get_2d_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns 2d validation data</span>
+
+<span class="sd">            :return: Joint positions 2d (NxMx2), M = 14 or 16</span>
+<span class="sd">            :rtype: numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_valid</span><span class="p">[</span><span class="s1">&#39;2d&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="TransformedDataset.get_3d_train"><a class="viewcode-back" href="../../../../poseutils.datasets.processed.html#poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_3d_train">[docs]</a>    <span class="k">def</span> <span class="nf">get_3d_train</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns 3d training data</span>
+
+<span class="sd">            :return: Joint positions 3d (NxMx3), M = 14 or 16</span>
+<span class="sd">            :rtype: numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_train</span><span class="p">[</span><span class="s1">&#39;3d&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="TransformedDataset.get_3d_valid"><a class="viewcode-back" href="../../../../poseutils.datasets.processed.html#poseutils.datasets.processed.TransformedDataset.TransformedDataset.get_3d_valid">[docs]</a>    <span class="k">def</span> <span class="nf">get_3d_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns 3d validation data</span>
+
+<span class="sd">            :return: Joint positions 3d (NxMx3), M = 14 or 16</span>
+<span class="sd">            :rtype: numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_valid</span><span class="p">[</span><span class="s1">&#39;3d&#39;</span><span class="p">]</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Saad Manzur.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

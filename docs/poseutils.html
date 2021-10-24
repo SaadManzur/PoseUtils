@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>poseutils package &mdash; PoseUtils 0.3.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="poseutils.datasets package" href="poseutils.datasets.html" />
+    <link rel="prev" title="poseutils" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PoseUtils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">poseutils</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">poseutils package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.html">poseutils.datasets package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-poseutils.camera_utils">poseutils.camera_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-poseutils.common">poseutils.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-poseutils.composite">poseutils.composite module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-poseutils.constants">poseutils.constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-poseutils.logger">poseutils.logger module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-poseutils.metrics">poseutils.metrics module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-poseutils.props">poseutils.props module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-poseutils.transform">poseutils.transform module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-poseutils.view">poseutils.view module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-poseutils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PoseUtils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">poseutils</a> &raquo;</li>
+      <li>poseutils package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/poseutils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="poseutils-package">
+<h1>poseutils package<a class="headerlink" href="#poseutils-package" title="Permalink to this headline"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="poseutils.datasets.html">poseutils.datasets package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="poseutils.datasets.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.datasets.processed.html">poseutils.datasets.processed package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.processed.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.processed.html#module-poseutils.datasets.processed.TransformedDataset">poseutils.datasets.processed.TransformedDataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.processed.html#module-poseutils.datasets.processed">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.datasets.transformation.html">poseutils.datasets.transformation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.transformation.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.transformation.html#module-poseutils.datasets.transformation.CalculateMetrics">poseutils.datasets.transformation.CalculateMetrics module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.transformation.html#module-poseutils.datasets.transformation.CropAndScale">poseutils.datasets.transformation.CropAndScale module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.transformation.html#module-poseutils.datasets.transformation.Normalize">poseutils.datasets.transformation.Normalize module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.transformation.html#module-poseutils.datasets.transformation.RootCenter">poseutils.datasets.transformation.RootCenter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.transformation.html#module-poseutils.datasets.transformation.Transformation">poseutils.datasets.transformation.Transformation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.transformation.html#module-poseutils.datasets.transformation.Unnormalize">poseutils.datasets.transformation.Unnormalize module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.transformation.html#module-poseutils.datasets.transformation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="poseutils.datasets.unprocessed.html">poseutils.datasets.unprocessed package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.unprocessed.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.unprocessed.html#module-poseutils.datasets.unprocessed.Dataset">poseutils.datasets.unprocessed.Dataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.unprocessed.html#module-poseutils.datasets.unprocessed.GPADataset">poseutils.datasets.unprocessed.GPADataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.unprocessed.html#module-poseutils.datasets.unprocessed.H36MDataset">poseutils.datasets.unprocessed.H36MDataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.unprocessed.html#module-poseutils.datasets.unprocessed.MPI3DHPDataset">poseutils.datasets.unprocessed.MPI3DHPDataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.unprocessed.html#module-poseutils.datasets.unprocessed.SURREALDataset">poseutils.datasets.unprocessed.SURREALDataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.unprocessed.html#module-poseutils.datasets.unprocessed.TDPWDataset">poseutils.datasets.unprocessed.TDPWDataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="poseutils.datasets.unprocessed.html#module-poseutils.datasets.unprocessed">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="poseutils.datasets.html#module-poseutils.datasets">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-poseutils.camera_utils">
+<span id="poseutils-camera-utils-module"></span><h2>poseutils.camera_utils module<a class="headerlink" href="#module-poseutils.camera_utils" title="Permalink to this headline"></a></h2>
+<p>Most of the camera functions are taken from Zhao et al. Semantic Graph Convolution</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.camera_utils.camera_to_world_frame">
+<span class="sig-prename descclassname"><span class="pre">poseutils.camera_utils.</span></span><span class="sig-name descname"><span class="pre">camera_to_world_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/camera_utils.html#camera_to_world_frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.camera_utils.camera_to_world_frame" title="Permalink to this definition"></a></dt>
+<dd><p>Inverse of world_to_camera_frame</p>
+<p>Args
+P: Nx3 points in camera coordinates
+R: 3x3 Camera rotation matrix
+T: 3x1 Camera translation parameters
+Returns
+X_cam: Nx3 points in world coordinates</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.camera_utils.load_camera_params">
+<span class="sig-prename descclassname"><span class="pre">poseutils.camera_utils.</span></span><span class="sig-name descname"><span class="pre">load_camera_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/camera_utils.html#load_camera_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.camera_utils.load_camera_params" title="Permalink to this definition"></a></dt>
+<dd><p>Load h36m camera parameters</p>
+<p>Args
+hf: hdf5 open file with h36m cameras data
+path: path or key inside hf to the camera we are interested in
+Returns
+R: 3x3 Camera rotation matrix
+T: 3x1 Camera translation parameters
+f: (scalar) Camera focal length
+c: 2x1 Camera center
+k: 3x1 Camera radial distortion coefficients
+p: 2x1 Camera tangential distortion coefficients
+name: String with camera id</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.camera_utils.load_cameras">
+<span class="sig-prename descclassname"><span class="pre">poseutils.camera_utils.</span></span><span class="sig-name descname"><span class="pre">load_cameras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cameras.h5'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subjects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9,</span> <span class="pre">11]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/camera_utils.html#load_cameras"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.camera_utils.load_cameras" title="Permalink to this definition"></a></dt>
+<dd><p>Loads the cameras of h36m</p>
+<p>Args
+bpath: path to hdf5 file with h36m camera data
+subjects: List of ints representing the subject IDs for which cameras are requested
+Returns
+rcams: dictionary of 4 tuples per subject ID containing its camera parameters for the 4 h36m cams</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.camera_utils.project_point_radial">
+<span class="sig-prename descclassname"><span class="pre">poseutils.camera_utils.</span></span><span class="sig-name descname"><span class="pre">project_point_radial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/camera_utils.html#project_point_radial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.camera_utils.project_point_radial" title="Permalink to this definition"></a></dt>
+<dd><p>Project points from 3d to 2d using camera parameters
+including radial and tangential distortion</p>
+<p>Args
+P: Nx3 points in world coordinates
+R: 3x3 Camera rotation matrix
+T: 3x1 Camera translation parameters
+f: (scalar) Camera focal length
+c: 2x1 Camera center
+k: 3x1 Camera radial distortion coefficients
+p: 2x1 Camera tangential distortion coefficients
+Returns
+Proj: Nx2 points in pixel space
+D: 1xN depth of each point in camera space
+radial: 1xN radial distortion per point
+tan: 1xN tangential distortion per point
+r2: 1xN squared radius of the projected points before distortion</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.camera_utils.world_to_camera_frame">
+<span class="sig-prename descclassname"><span class="pre">poseutils.camera_utils.</span></span><span class="sig-name descname"><span class="pre">world_to_camera_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/camera_utils.html#world_to_camera_frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.camera_utils.world_to_camera_frame" title="Permalink to this definition"></a></dt>
+<dd><p>Convert points from world to camera coordinates</p>
+<p>Args
+P: Nx3 3d points in world coordinates
+R: 3x3 Camera rotation matrix
+T: 3x1 Camera translation parameters
+Returns
+X_cam: Nx3 3d points in camera coordinates</p>
+</dd></dl>
+
+</section>
+<section id="module-poseutils.common">
+<span id="poseutils-common-module"></span><h2>poseutils.common module<a class="headerlink" href="#module-poseutils.common" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.common.calc_angle_360">
+<span class="sig-prename descclassname"><span class="pre">poseutils.common.</span></span><span class="sig-name descname"><span class="pre">calc_angle_360</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/common.html#calc_angle_360"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.common.calc_angle_360" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the angle within 360 degrees between two vectors <img class="math" src="_images/math/1c74485fdd094fc0242d5a0e1a357dc89527ca7e.png" alt="v_1"/> and <img class="math" src="_images/math/dce2ee68e8a49072ebdeaa689da6f207bee581ea.png" alt="v_2"/> around normal <img class="math" src="_images/math/5a939c5280da7202ca4531f175a7780ad5e1f80a.png" alt="n"/>.</p>
+<div class="math">
+<p><img src="_images/math/28c582b0466c7d8a8d55f99e9c3fa204ec610590.png" alt="\vec{x} &amp;= \vec{v_1} \cdot \vec{v_2} \\
+c &amp;= sign(\vec{x} \cdot \vec{n}) * |\vec{x}| \\
+a &amp;= \tan^{-1} \frac{c}{\vec{v_1} \cdot \vec{v_2}}"/></p>
+</div><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v1</strong> (<em>numpy.ndarray</em>) – Vector Nx1 or 1xN</p></li>
+<li><p><strong>v2</strong> (<em>numpy.ndarray</em>) – Vector Nx1 or 1xN</p></li>
+<li><p><strong>n</strong> (<em>numpy.ndarray</em>) – Vector Nx1 or 1xN</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Angle in degrees</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.common.normalize_a_to_b">
+<span class="sig-prename descclassname"><span class="pre">poseutils.common.</span></span><span class="sig-name descname"><span class="pre">normalize_a_to_b</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/common.html#normalize_a_to_b"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.common.normalize_a_to_b" title="Permalink to this definition"></a></dt>
+<dd><p>Normalizes a vector from a to b</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>numpy.ndarray</em>) – Start position vector</p></li>
+<li><p><strong>b</strong> (<em>numpy.ndarray</em>) – End position vector</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Normalized vector from a to b</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.common.normalize_vec">
+<span class="sig-prename descclassname"><span class="pre">poseutils.common.</span></span><span class="sig-name descname"><span class="pre">normalize_vec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/common.html#normalize_vec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.common.normalize_vec" title="Permalink to this definition"></a></dt>
+<dd><p>Normalizes a vector to a unit vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vec</strong> (<em>numpy.ndarray</em>) – Vector to normalize (Nx1 or 1xN)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Normalized vector (Nx1 or 1xN)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-poseutils.composite">
+<span id="poseutils-composite-module"></span><h2>poseutils.composite module<a class="headerlink" href="#module-poseutils.composite" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.composite.scale_into_bounding_box_2d">
+<span class="sig-prename descclassname"><span class="pre">poseutils.composite.</span></span><span class="sig-name descname"><span class="pre">scale_into_bounding_box_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/composite.html#scale_into_bounding_box_2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.composite.scale_into_bounding_box_2d" title="Permalink to this definition"></a></dt>
+<dd><p>Composite function to do cropping and scaling in one routine. Given an array of joint positions, it first extracts bounding box information. Then uses it to scale up/down in range [low, high] while preserving aspect ratio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>joints</strong> (<em>numpy.ndarray</em>) – Positions of joints (NxMx2), where M = 14 or 16</p></li>
+<li><p><strong>low</strong> (<em>int</em><em>, </em><em>optional</em>) – Lowest coordinate of the bounding box, defaults to 0</p></li>
+<li><p><strong>high</strong> (<em>int</em><em>, </em><em>optional</em>) – Highest coordinates of the bounding box, defaults to 256</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Scaled joint positions (NxMx2), where M = 14 or 16</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-poseutils.constants">
+<span id="poseutils-constants-module"></span><h2>poseutils.constants module<a class="headerlink" href="#module-poseutils.constants" title="Permalink to this headline"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="poseutils.constants.NAMES_14">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">NAMES_14</span></span><a class="headerlink" href="#poseutils.constants.NAMES_14" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Edge/bone</span> <span class="pre">names</span> <span class="pre">for</span> <span class="pre">14</span> <span class="pre">joint</span> <span class="pre">configuration</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="poseutils.constants.NAMES_16">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">NAMES_16</span></span><a class="headerlink" href="#poseutils.constants.NAMES_16" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Edge/bone</span> <span class="pre">names</span> <span class="pre">for</span> <span class="pre">16</span> <span class="pre">joint</span> <span class="pre">configuration</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="poseutils.constants.EDGES_14">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">EDGES_14</span></span><a class="headerlink" href="#poseutils.constants.EDGES_14" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Edge</span> <span class="pre">list</span> <span class="pre">for</span> <span class="pre">14</span> <span class="pre">joint</span> <span class="pre">configuration</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="poseutils.constants.LEFTS_14">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">LEFTS_14</span></span><a class="headerlink" href="#poseutils.constants.LEFTS_14" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Left</span> <span class="pre">side</span> <span class="pre">indices</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">skeleton</span> <span class="pre">for</span> <span class="pre">14</span> <span class="pre">joint</span> <span class="pre">configuration</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="poseutils.constants.RIGHTS_14">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">RIGHTS_14</span></span><a class="headerlink" href="#poseutils.constants.RIGHTS_14" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Right</span> <span class="pre">side</span> <span class="pre">indices</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">skeleton</span> <span class="pre">for</span> <span class="pre">14</span> <span class="pre">joint</span> <span class="pre">configuration</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="poseutils.constants.EDGES_16">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">EDGES_16</span></span><a class="headerlink" href="#poseutils.constants.EDGES_16" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Edge</span> <span class="pre">list</span> <span class="pre">for</span> <span class="pre">16</span> <span class="pre">joint</span> <span class="pre">configuration</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="poseutils.constants.LEFTS_16">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">LEFTS_16</span></span><a class="headerlink" href="#poseutils.constants.LEFTS_16" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Left</span> <span class="pre">side</span> <span class="pre">indices</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">skeleton</span> <span class="pre">for</span> <span class="pre">16</span> <span class="pre">joint</span> <span class="pre">configuration</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="poseutils.constants.RIGHTS_16">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">RIGHTS_16</span></span><a class="headerlink" href="#poseutils.constants.RIGHTS_16" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Right</span> <span class="pre">side</span> <span class="pre">indices</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">skeleton</span> <span class="pre">for</span> <span class="pre">16</span> <span class="pre">joint</span> <span class="pre">configuration</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="poseutils.constants.EDGE_NAMES_16JNTS">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">EDGE_NAMES_16JNTS</span></span><a class="headerlink" href="#poseutils.constants.EDGE_NAMES_16JNTS" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Edge/bone</span> <span class="pre">names</span> <span class="pre">for</span> <span class="pre">16</span> <span class="pre">joint</span> <span class="pre">configuration</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="poseutils.constants.EDGE_NAMES_14JNTS">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">EDGE_NAMES_14JNTS</span></span><a class="headerlink" href="#poseutils.constants.EDGE_NAMES_14JNTS" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Edge/bone</span> <span class="pre">names</span> <span class="pre">for</span> <span class="pre">14</span> <span class="pre">joint</span> <span class="pre">configuration</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.constants.adjacency_list">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">adjacency_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_jnts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/constants.html#adjacency_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.constants.adjacency_list" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a adjacency list arranged in parent -&gt; [children list] format either 14 or 16 joint configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n_jnts</strong> (<em>int</em>) – Number of joints, either 14 or 16</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If any other joint configuration is requested</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Adjacency list (n_jnts, [])</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list(list(int))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.constants.dataset_indices">
+<span class="sig-prename descclassname"><span class="pre">poseutils.constants.</span></span><span class="sig-name descname"><span class="pre">dataset_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jnts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/constants.html#dataset_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.constants.dataset_indices" title="Permalink to this definition"></a></dt>
+<dd><p>Returns either 14 or 16 joint configuration indices for specified dataset. Supports <cite>h36m, gpa, 3dpw, surreal, 3dhp</cite>. It returns indices to pick from the full dataset and rearrange them to ensure consistency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_name</strong> (<em>str</em>) – Name of the dataset. Supports <cite>h36m, gpa, 3dpw, surreal, 3dhp</cite></p></li>
+<li><p><strong>n_jnts</strong> (<em>int</em>) – Number of joint configuration to return. Either 14 or 16.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the dataset name provided is not supported.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>to_select: List of selection indices [n_jnts]</p></li>
+<li><p>to_sort: List of sorting order [n_jnts]</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple(list(int), list(int))</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-poseutils.logger">
+<span id="poseutils-logger-module"></span><h2>poseutils.logger module<a class="headerlink" href="#module-poseutils.logger" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.logger.log">
+<span class="sig-prename descclassname"><span class="pre">poseutils.logger.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/logger.html#log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.logger.log" title="Permalink to this definition"></a></dt>
+<dd><p>Logger for packaage. Prints the string with additional information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>str</em>) – Message to print</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-poseutils.metrics">
+<span id="poseutils-metrics-module"></span><h2>poseutils.metrics module<a class="headerlink" href="#module-poseutils.metrics" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.metrics.calculate_jpe">
+<span class="sig-prename descclassname"><span class="pre">poseutils.metrics.</span></span><span class="sig-name descname"><span class="pre">calculate_jpe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/metrics.html#calculate_jpe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.metrics.calculate_jpe" title="Permalink to this definition"></a></dt>
+<dd><p>Given prediction and ground truth 3d position calculates joint position error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pred</strong> (<em>numpy.ndarray</em>) – Predicted 3d joint positions (NxMx3), where M = 14 or 16</p></li>
+<li><p><strong>target</strong> (<em>numpy.ndarray</em>) – Ground truth 3d joint positions (NxMx3), where M = 14 or 16</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>MPJPE: Mean per joint position error</p></li>
+<li><p>PJPE: Per joint position error (Mx1)</p></li>
+<li><p>PPJPE: Per point joint position error (Nx1)</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(float, numpy.ndarray, numpy.ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-poseutils.props">
+<span id="poseutils-props-module"></span><h2>poseutils.props module<a class="headerlink" href="#module-poseutils.props" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.props.calculate_avg_limb_lengths">
+<span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">calculate_avg_limb_lengths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jnts_xd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cvt_mm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#calculate_avg_limb_lengths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.calculate_avg_limb_lengths" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates aveage edge/limb length (Euclidean distance) of a 2d or 3d skeleton.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jnts_xd</strong> (<em>numpy.ndarray</em>) – Joint positions (NxMxI), M = 14 or 16, I = 2 or 3</p></li>
+<li><p><strong>cvt_mm</strong> (<em>bool</em><em>, </em><em>optional</em>) – Convert from meter to milimeters, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Limb/edge lengths (M-1)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list(float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.props.calculate_camera_angles">
+<span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">calculate_camera_angles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#calculate_camera_angles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.calculate_camera_angles" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the relative camera angles (elevation and azimuth) w.r.t. body centered axes.</p>
+<div class="math">
+<p><img src="_images/math/17be95b40542e08843304773d6052a0588c27a24.png" alt="\bm{u} &amp;= \frac{\bm{p_{ls}} + \bm{p_{rs}}}{2} - \bm{p_h} \\
+\bm{\hat{u}} &amp;= \frac{\bm{u}}{|\bm{u}|} \\
+\bm{f} &amp;= (\bm{p_{ls}} - \bm{p_h}) \times (\bm{p_{rs}} - \bm{p_h}) \\
+\bm{\hat{f}} &amp;= \frac{\bm{f}}{|\bm{f}|} \\
+\bm{r} &amp;= \bm{\hat{f}} \times \bm{\hat{u}} \\
+\bm{\hat{r}} &amp;= \frac{\bm{r}}{|\bm{r}|} \\
+\bm{\hat{u}} &amp;= \frac{\bm{\hat{r}} \times \bm{\hat{f}}}{|\bm{\hat{r}} \times \bm{\hat{f}}|} \\
+\bm{c} &amp;= - \bm{p_h} \\
+e &amp;= 90 - \frac{180}{\pi} \times (\cos^{-1}(\bm{\hat{u}} \cdot \bm{c})) \\
+\bm{\hat{c_u}} &amp;= (\bm{\hat{u}} \cdot \bm{c}) \bm{\hat{u}} \\
+\bm{\hat{c_{rf}}} &amp;= \frac{\bm{c} - \bm{c_u}}{|\bm{c} - \bm{c_u}|} \\"/></p>
+</div><p>Then calculate the angle around :math: <cite>bm{hat{u}}</cite>, between two vectors, <img class="math" src="_images/math/fdec07c2dd1245585907e9de29b6c09a8068deb4.png" alt="\bm{\hat{f}}"/> and <img class="math" src="_images/math/b420de6039f5f542a1167db98aac1edf768bf767.png" alt="\bm{\hat{c_{rf}}}"/></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>numpy.ndarray</em>) – Joint positions (NxMx3), M = 14 or 16</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array of angles in degrees [0, 360]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.props.calculate_limb_lengths">
+<span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">calculate_limb_lengths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jnts_xd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cvt_mm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#calculate_limb_lengths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.calculate_limb_lengths" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates every edge/limb length (Euclidean distance) of a 2d or 3d skeleton.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jnts_xd</strong> (<em>numpy.ndarray</em>) – Joint positions (MxI), M = 14 or 16, I = 2 or 3</p></li>
+<li><p><strong>cvt_mm</strong> (<em>bool</em><em>, </em><em>optional</em>) – Convert from meter to milimeters, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Limb/edge lengths (M-1)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list(float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.props.get_angles_from_joints">
+<span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">get_angles_from_joints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#get_angles_from_joints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.get_angles_from_joints" title="Permalink to this definition"></a></dt>
+<dd><p>Convert skeleton from positions to inter-joint angles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>joints</strong> (<em>numpy.ndarray</em>) – Joint positions (Mx3), M = 14 or 16</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If anyother joint configuration is specified</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>joint_angles: Inter-joint angles</p></li>
+<li><p>edge_names: Edge/limb names</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple(numpy.ndarray, numpy.ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.props.get_body_centered_axes">
+<span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">get_body_centered_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#get_body_centered_axes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.get_body_centered_axes" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates and returns body centered axes - right, up and forward vectors of the skeleton.</p>
+<div class="math">
+<p><img src="_images/math/f9fa9b879aa21a90654dbf321b16561dde3a6559.png" alt="\bm{u} &amp;= \frac{\bm{p_{ls}} + \bm{p_{rs}}}{2} - \bm{p_h} \\
+\bm{\hat{u}} &amp;= \frac{\bm{u}}{|\bm{u}|} \\
+\bm{f} &amp;= (\bm{p_{ls}} - \bm{p_h}) \times (\bm{p_{rs}} - \bm{p_h}) \\
+\bm{\hat{f}} &amp;= \frac{\bm{f}}{|\bm{f}|} \\
+\bm{r} &amp;= \bm{\hat{f}} \times \bm{\hat{u}} \\
+\bm{\hat{r}} &amp;= \frac{\bm{r}}{|\bm{r}|} \\
+\bm{f} &amp;= (\bm{p_{ls}} - \bm{p_h}) \times (\bm{p_{rs}} - \bm{p_h}) \\
+\bm{\hat{f}} &amp;= \frac{\bm{f}}{|\bm{f}|} \\
+R &amp;= [\bm{\hat{r}} \; \bm{\hat{u}} \; \bm{\hat{f}}]"/></p>
+</div><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>joints</strong> (<em>numpy.ndarray</em>) – Joint positions (NxMx3), M = 14 or 16</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>up: Up vectors (Nx3x1)</p></li>
+<li><p>forward: Forward vectors (Nx3x1)</p></li>
+<li><p>right: Right vectors (Nx3x1)</p></li>
+<li><p>R: Rotation/set of axes matrix (Nx3x3)</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(numpy.ndarray, numpy.ndarray, numpy.ndarray, numpy.ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.props.get_bounding_box_2d">
+<span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">get_bounding_box_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#get_bounding_box_2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.get_bounding_box_2d" title="Permalink to this definition"></a></dt>
+<dd><p>Get 2d bounding box</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>joints</strong> (<em>numpy.ndarray</em>) – Joint positions (NxMx2)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>left_x: Array of x coordinates of left side</p></li>
+<li><p>left_y: Array of y coordinates of left side</p></li>
+<li><p>right_x: Array of x coordinates of right side</p></li>
+<li><p>right_y: Array of y coordinates of right side</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(numpy.ndarray, numpy.ndarray, numpy.ndarray, numpy.ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.props.get_joints_from_angles">
+<span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">get_joints_from_angles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bone_lengths</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#get_joints_from_angles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.get_joints_from_angles" title="Permalink to this definition"></a></dt>
+<dd><p>Convert inter-joint angles to positions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>angles</strong> (<em>numpy.ndarray</em>) – Array of angles in degrees (M-1)x3</p></li>
+<li><p><strong>bone_lengths</strong> (<em>numpy.ndarray</em>) – Array of bone lengths (M-1)x1</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If anyother joint configuration is specified</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Joint positions (Mx3), root centered</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-poseutils.transform">
+<span id="poseutils-transform-module"></span><h2>poseutils.transform module<a class="headerlink" href="#module-poseutils.transform" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.transform.normalize_skeleton">
+<span class="sig-prename descclassname"><span class="pre">poseutils.transform.</span></span><span class="sig-name descname"><span class="pre">normalize_skeleton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/transform.html#normalize_skeleton"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.transform.normalize_skeleton" title="Permalink to this definition"></a></dt>
+<dd><p>Normalizes joint positions (NxMx2 or NxMx3, where M is 14 or 16) from parent to child order. Each vector from parent to child is normalized with respect to it’s length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>joints</strong> (<em>numpy.ndarray</em>) – Position of joints (NxMx2) or (NxMx3)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Normalzed position of joints (NxMx2) or (NxMx3)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.transform.normalize_torso_2d">
+<span class="sig-prename descclassname"><span class="pre">poseutils.transform.</span></span><span class="sig-name descname"><span class="pre">normalize_torso_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">torso</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/transform.html#normalize_torso_2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.transform.normalize_torso_2d" title="Permalink to this definition"></a></dt>
+<dd><p>Takes in the torso coordinates and normalizes it. Takes the distance of each torso joint from the Right Hip joint position. Each distance is then normalized with the distance along the diagonal connecting Right Hip to Left Shoulder. A small value is added to the diagonal distance to avoid divide-by-zero error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>torso</strong> (<em>numpy.ndarray</em>) – Torso joint positions (Nx4x2), with arranged in order: Right Hip, Left Hip, Left Shoulder, Right Shoulder</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>New torso positions (Nx4x2)</p></li>
+<li><p>Width of right hip to left hip, right hip to left shoulder, right hip to right shoulder (Nx3)</p></li>
+<li><p>List of names of the widths</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(numpy.narray, numpy.ndarray, list(str))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.transform.normalize_zscore">
+<span class="sig-prename descclassname"><span class="pre">poseutils.transform.</span></span><span class="sig-name descname"><span class="pre">normalize_zscore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/transform.html#normalize_zscore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.transform.normalize_zscore" title="Permalink to this definition"></a></dt>
+<dd><p>Normalize position of joints using z-score normalization. Subtracts mean and divides by standard devation. Metrics are ideally collected from the training set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Position of joints (NxMx2) or (NxMx3)</p></li>
+<li><p><strong>mean</strong> (<em>numpy.ndarray</em>) – Mean joint position (Mx2) or (Mx3)</p></li>
+<li><p><strong>std</strong> (<em>[</em><em>type</em><em>]</em>) – Standard deviation of joint positions (Mx2) or (Mx3)</p></li>
+<li><p><strong>skip_root</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to skip over the root/hip when normalizing, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New position of joints (NxMx2) or (NxMx3)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.transform.root_center">
+<span class="sig-prename descclassname"><span class="pre">poseutils.transform.</span></span><span class="sig-name descname"><span class="pre">root_center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/transform.html#root_center"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.transform.root_center" title="Permalink to this definition"></a></dt>
+<dd><p>Subtract the value at root index to make the coordinates center around root. Useful for hip-centering the skeleton.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Position of joints (NxMx2) or (NxMx3)</p></li>
+<li><p><strong>root_idx</strong> (<em>int</em><em>, </em><em>optional</em>) – Root/Hip index, defaults to 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New position of joints (NxMx2) or (NxMx3)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.transform.scale_bounding_area_to">
+<span class="sig-prename descclassname"><span class="pre">poseutils.transform.</span></span><span class="sig-name descname"><span class="pre">scale_bounding_area_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bbox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/transform.html#scale_bounding_area_to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.transform.scale_bounding_area_to" title="Permalink to this definition"></a></dt>
+<dd><p>Scales up or down the bounding box enclosed region to fit in a (high-low) sided square while preserving aspect ratio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Position of joints (NxMx2)</p></li>
+<li><p><strong>bbox</strong> (<em>numpy.ndarray</em>) – Bounding box coordinates (Nx4) where columns are stacked as [lx, ly, rx, ry]. (lx, ly) is the coordinate for top-left corner whereas (rx, ry) is the coordinate of the bottom-right corner</p></li>
+<li><p><strong>low</strong> (<em>int</em><em>, </em><em>optional</em>) – Lowest value of the bounding box, defaults to 0</p></li>
+<li><p><strong>high</strong> (<em>int</em><em>, </em><em>optional</em>) – Highest value of the bounding box, defaults to 256</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New position of joints (NxMx2)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.transform.unnormalize_zscore">
+<span class="sig-prename descclassname"><span class="pre">poseutils.transform.</span></span><span class="sig-name descname"><span class="pre">unnormalize_zscore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/transform.html#unnormalize_zscore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.transform.unnormalize_zscore" title="Permalink to this definition"></a></dt>
+<dd><p>Reverses normalized position of joints using z-score normalization. Multiplies by standard devation and adds the mean. Metrics are ideally collected from the training set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Position of joints (NxMx2) or (NxMx3)</p></li>
+<li><p><strong>mean</strong> (<em>numpy.ndarray</em>) – Mean joint position (Mx2) or (Mx3)</p></li>
+<li><p><strong>std</strong> (<em>[</em><em>type</em><em>]</em>) – Standard deviation of joint positions (Mx2) or (Mx3)</p></li>
+<li><p><strong>skip_root</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to skip over the root/hip when unnormalizing, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>New position of joints (NxMx2) or (NxMx3)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-poseutils.view">
+<span id="poseutils-view-module"></span><h2>poseutils.view module<a class="headerlink" href="#module-poseutils.view" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.view.draw_axes">
+<span class="sig-prename descclassname"><span class="pre">poseutils.view.</span></span><span class="sig-name descname"><span class="pre">draw_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/view.html#draw_axes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.view.draw_axes" title="Permalink to this definition"></a></dt>
+<dd><p>Draw xyz axes centered at a position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>R</strong> (<em>numpy.ndarray</em>) – Rotation matrix (3,3) with columns representing xyz columns respectively</p></li>
+<li><p><strong>t</strong> (<em>numpy.ndarray</em>) – Position t (3,) acting as the origin of the xyz axes</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.pyplot.subplot</em>) – Matplotlib subplot reference</p></li>
+<li><p><strong>scale</strong> (<em>float</em><em>, </em><em>optional</em>) – To scale up the axes, defaults to 0.5</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.view.draw_bounding_box">
+<span class="sig-prename descclassname"><span class="pre">poseutils.view.</span></span><span class="sig-name descname"><span class="pre">draw_bounding_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ly</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/view.html#draw_bounding_box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.view.draw_bounding_box" title="Permalink to this definition"></a></dt>
+<dd><p>Draws bounding box</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lx</strong> (<em>numpy.ndarray</em>) – X coordinates (Nx1) for top-left corner of the box</p></li>
+<li><p><strong>ly</strong> (<em>numpy.ndarray</em>) – Y coordinates (Nx1) for top-left corner of the box</p></li>
+<li><p><strong>rx</strong> (<em>numpy.ndarray</em>) – X coordinates (Nx1) for bottom-right corner of the box</p></li>
+<li><p><strong>ry</strong> (<em>numpy.ndarray</em>) – Y coordinates (Nx1) for bottom-right corner of the box</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.pyplot.subplot</em>) – Matplotlib subplot reference</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poseutils.view.draw_skeleton">
+<span class="sig-prename descclassname"><span class="pre">poseutils.view.</span></span><span class="sig-name descname"><span class="pre">draw_skeleton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jnts_14</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/view.html#draw_skeleton"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.view.draw_skeleton" title="Permalink to this definition"></a></dt>
+<dd><p>Draws a skeleton from joints</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pose</strong> (<em>numpy.ndarray</em>) – Joint positions either 2d (Nx2) or 3d (Nx3) where N = 14 or 16</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.pyplot.subplot</em>) – Matplotlib subplot reference</p></li>
+<li><p><strong>jnts_14</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to specify whether to use 14 joint (True) or 16 joint (False) configuration, defaults to True</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-poseutils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-poseutils" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="poseutils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="poseutils.datasets.html" class="btn btn-neutral float-right" title="poseutils.datasets package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Saad Manzur.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
