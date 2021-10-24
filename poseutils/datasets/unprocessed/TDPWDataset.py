@@ -5,9 +5,14 @@ from poseutils.logger import log
 from poseutils.datasets.unprocessed.Dataset import Dataset
 
 class TDPWDataset(Dataset):
+    """Dataset class for handling 3DPW dataset
+
+        :param path: path to npz file
+        :type path: str
+    """
 
     def __init__(self, path):
-        super(TDPWDataset, self).__init__()
+        super(TDPWDataset, self).__init__('3dpw')
 
         self.load_data(path)
 

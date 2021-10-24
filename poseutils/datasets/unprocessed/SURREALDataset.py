@@ -5,9 +5,16 @@ from poseutils.logger import log
 from poseutils.datasets.unprocessed.Dataset import Dataset
 
 class SURREALDataset(Dataset):
+    """Dataset class for SURREAL dataset.
+
+        :param path_train: Path to surreal training set npz
+        :type path_train: str
+        :param path_valid: Path to validation set npz
+        :type path_valid: str
+    """
 
     def __init__(self, path_train, path_valid):
-        super(SURREALDataset, self).__init__()
+        super(SURREALDataset, self).__init__('surreal')
 
         self.load_data(path_train, path_valid)
 

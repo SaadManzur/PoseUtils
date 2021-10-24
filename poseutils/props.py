@@ -6,6 +6,15 @@ from poseutils.common import calc_angle_360
 from poseutils.common import normalize_a_to_b
 
 def calculate_limb_lengths(jnts_xd, cvt_mm=False):
+    """Calculates every edge/limb length (Euclidean distance) of a 2d or 3d skeleton.
+
+        :param jnts_xd: Joint positions (MxI), M = 14 or 16, I = 2 or 3
+        :type jnts_xd: numpy.ndarray
+        :param cvt_mm: Convert from meter to milimeters, defaults to False
+        :type cvt_mm: bool, optional
+        :return: Limb/edge lengths (M-1)
+        :rtype: list(float)
+    """
 
     assert len(jnts_xd.shape) == 2
     assert jnts_xd.shape[-1] == 2 or jnts_xd.shape[-1] == 3
@@ -29,6 +38,15 @@ def calculate_limb_lengths(jnts_xd, cvt_mm=False):
     return edge_length
 
 def calculate_avg_limb_lengths(jnts_xd, cvt_mm=False):
+    """Calculates aveage edge/limb length (Euclidean distance) of a 2d or 3d skeleton.
+
+        :param jnts_xd: Joint positions (NxMxI), M = 14 or 16, I = 2 or 3
+        :type jnts_xd: numpy.ndarray
+        :param cvt_mm: Convert from meter to milimeters, defaults to False
+        :type cvt_mm: bool, optional
+        :return: Limb/edge lengths (M-1)
+        :rtype: list(float)
+    """
 
     assert len(jnts_xd.shape) == 3
     assert jnts_xd.shape[-1] == 2 or jnts_xd.shape[-1] == 3
@@ -60,6 +78,29 @@ def calculate_avg_limb_lengths(jnts_xd, cvt_mm=False):
     return np.mean(edge_lengths, axis=0), np.std(edge_lengths, axis=0), edge_names
 
 def calculate_camera_angles(data):
+    """Calculates the relative camera angles (elevation and azimuth) w.r.t. body centered axes.
+
+        .. math::
+
+            \\bm{u} &= \\frac{\\bm{p_{ls}} + \\bm{p_{rs}}}{2} - \\bm{p_h} \\\\
+            \\bm{\\hat{u}} &= \\frac{\\bm{u}}{|\\bm{u}|} \\\\
+            \\bm{f} &= (\\bm{p_{ls}} - \\bm{p_h}) \\times (\\bm{p_{rs}} - \\bm{p_h}) \\\\
+            \\bm{\\hat{f}} &= \\frac{\\bm{f}}{|\\bm{f}|} \\\\
+            \\bm{r} &= \\bm{\\hat{f}} \\times \\bm{\\hat{u}} \\\\
+            \\bm{\\hat{r}} &= \\frac{\\bm{r}}{|\\bm{r}|} \\\\
+            \\bm{\\hat{u}} &= \\frac{\\bm{\\hat{r}} \\times \\bm{\\hat{f}}}{|\\bm{\\hat{r}} \\times \\bm{\\hat{f}}|} \\\\
+            \\bm{c} &= - \\bm{p_h} \\\\
+            e &= 90 - \\frac{180}{\\pi} \\times (\\cos^{-1}(\\bm{\\hat{u}} \\cdot \\bm{c})) \\\\
+            \\bm{\\hat{c_u}} &= (\\bm{\\hat{u}} \\cdot \\bm{c}) \\bm{\\hat{u}} \\\\
+            \\bm{\\hat{c_{rf}}} &= \\frac{\\bm{c} - \\bm{c_u}}{|\\bm{c} - \\bm{c_u}|} \\\\
+
+        Then calculate the angle around :math: `\\bm{\\hat{u}}`, between two vectors, :math:`\\bm{\\hat{f}}` and :math:`\\bm{\\hat{c_{rf}}}`
+
+        :param data: Joint positions (NxMx3), M = 14 or 16
+        :type data: numpy.ndarray
+        :return: Array of angles in degrees [0, 360]
+        :rtype: numpy.ndarray
+    """
 
     assert len(data.shape) == 3
     assert data.shape[-1] == 3
@@ -107,6 +148,30 @@ def calculate_camera_angles(data):
     return np.array(angles)
 
 def get_body_centered_axes(joints):
+    """Calculates and returns body centered axes - right, up and forward vectors of the skeleton.
+
+        .. math::
+
+            \\bm{u} &= \\frac{\\bm{p_{ls}} + \\bm{p_{rs}}}{2} - \\bm{p_h} \\\\
+            \\bm{\\hat{u}} &= \\frac{\\bm{u}}{|\\bm{u}|} \\\\
+            \\bm{f} &= (\\bm{p_{ls}} - \\bm{p_h}) \\times (\\bm{p_{rs}} - \\bm{p_h}) \\\\
+            \\bm{\\hat{f}} &= \\frac{\\bm{f}}{|\\bm{f}|} \\\\
+            \\bm{r} &= \\bm{\\hat{f}} \\times \\bm{\\hat{u}} \\\\
+            \\bm{\\hat{r}} &= \\frac{\\bm{r}}{|\\bm{r}|} \\\\
+            \\bm{f} &= (\\bm{p_{ls}} - \\bm{p_h}) \\times (\\bm{p_{rs}} - \\bm{p_h}) \\\\
+            \\bm{\\hat{f}} &= \\frac{\\bm{f}}{|\\bm{f}|} \\\\
+            R &= [\\bm{\\hat{r}} \\; \\bm{\\hat{u}} \\; \\bm{\\hat{f}}]
+
+
+        :param joints: Joint positions (NxMx3), M = 14 or 16
+        :type joints: numpy.ndarray
+        :return:
+            - up: Up vectors (Nx3x1)
+            - forward: Forward vectors (Nx3x1)
+            - right: Right vectors (Nx3x1)
+            - R: Rotation/set of axes matrix (Nx3x3)
+        :rtype: tuple(numpy.ndarray, numpy.ndarray, numpy.ndarray, numpy.ndarray)
+    """
 
     assert len(joints.shape) == 3
     assert joints.shape[-1] == 3
@@ -144,6 +209,16 @@ def get_body_centered_axes(joints):
     return up, forward, right, R.transpose((0, 2, 1))
 
 def get_angles_from_joints(joints):
+    """Convert skeleton from positions to inter-joint angles
+
+        :param joints: Joint positions (Mx3), M = 14 or 16
+        :type joints: numpy.ndarray
+        :raises ValueError: If anyother joint configuration is specified
+        :return:
+            - joint_angles: Inter-joint angles
+            - edge_names: Edge/limb names
+        :rtype: tuple(numpy.ndarray, numpy.ndarray)
+    """
 
     assert len(joints.shape) == 2
     assert joints.shape[-1] == 3
@@ -168,6 +243,16 @@ def get_angles_from_joints(joints):
     return np.array(joint_angles), np.array(edge_names)
 
 def get_joints_from_angles(angles, bone_lengths):
+    """Convert inter-joint angles to positions
+
+        :param angles: Array of angles in degrees (M-1)x3
+        :type angles: numpy.ndarray
+        :param bone_lengths: Array of bone lengths (M-1)x1
+        :type bone_lengths: numpy.ndarray
+        :raises ValueError: If anyother joint configuration is specified
+        :return: Joint positions (Mx3), root centered
+        :rtype: numpy.ndarray
+    """
 
     assert len(angles.shape) == 2
     assert angles.shape[-1] == 3
@@ -203,6 +288,17 @@ def get_joints_from_angles(angles, bone_lengths):
     return np.array(joints)
 
 def get_bounding_box_2d(joints):
+    """Get 2d bounding box
+
+        :param joints: Joint positions (NxMx2)
+        :type joints: numpy.ndarray
+        :return: 
+            - left_x: Array of x coordinates of left side
+            - left_y: Array of y coordinates of left side
+            - right_x: Array of x coordinates of right side
+            - right_y: Array of y coordinates of right side
+        :rtype: tuple(numpy.ndarray, numpy.ndarray, numpy.ndarray, numpy.ndarray)
+    """
 
     assert joints.shape[-1] == 2
     assert len(joints.shape) == 3

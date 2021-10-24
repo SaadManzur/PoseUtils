@@ -38,9 +38,14 @@ TRAIN_SUBJECTS = ['S0']
 TEST_SUBJECTS = ['S0']
 
 class H36MDataset(Dataset):
+    """Dataset class for H36M dataset.
+
+        :param path: Base directory path to h36m files with cameras.h5
+        :type path: str
+    """
 
     def __init__(self, path):
-        super(H36MDataset, self).__init__()
+        super(H36MDataset, self).__init__('h36m')
 
         self.actions = ["Directions","Discussion","Eating","Greeting",
            "Phoning","Photo","Posing","Purchases",

@@ -5,9 +5,14 @@ from poseutils.logger import log
 from poseutils.datasets.unprocessed.Dataset import Dataset
 
 class MPI3DHPDataset(Dataset):
+    """Dataset class for 3DHP dataset.
+
+        :param path: Path to compiled npz files for 3dhp dataset
+        :type path: str
+    """
 
     def __init__(self, path):
-        super(MPI3DHPDataset, self).__init__()
+        super(MPI3DHPDataset, self).__init__('3dhp')
 
         self.load_data(path)
 

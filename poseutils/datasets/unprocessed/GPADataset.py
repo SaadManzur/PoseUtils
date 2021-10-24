@@ -5,9 +5,14 @@ from poseutils.logger import log
 from poseutils.datasets.unprocessed.Dataset import Dataset
 
 class GPADataset(Dataset):
+    """Dataset class for handling GPA dataset
+
+        :param path: path to npz file
+        :type path: str
+    """
 
     def __init__(self, path):
-        super(GPADataset, self).__init__()
+        super(GPADataset, self).__init__('gpa')
 
         self.load_data(path)
 

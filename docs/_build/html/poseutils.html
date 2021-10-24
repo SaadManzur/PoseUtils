@@ -467,37 +467,175 @@ a &amp;= \tan^{-1} \frac{c}{\vec{v_1} \cdot \vec{v_2}}"/></p>
 <dl class="py function">
 <dt class="sig sig-object py" id="poseutils.props.calculate_avg_limb_lengths">
 <span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">calculate_avg_limb_lengths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jnts_xd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cvt_mm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#calculate_avg_limb_lengths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.calculate_avg_limb_lengths" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Calculates aveage edge/limb length (Euclidean distance) of a 2d or 3d skeleton.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jnts_xd</strong> (<em>numpy.ndarray</em>) – Joint positions (NxMxI), M = 14 or 16, I = 2 or 3</p></li>
+<li><p><strong>cvt_mm</strong> (<em>bool</em><em>, </em><em>optional</em>) – Convert from meter to milimeters, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Limb/edge lengths (M-1)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list(float)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="poseutils.props.calculate_camera_angles">
 <span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">calculate_camera_angles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#calculate_camera_angles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.calculate_camera_angles" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Calculates the relative camera angles (elevation and azimuth) w.r.t. body centered axes.</p>
+<div class="math">
+<p><img src="_images/math/17be95b40542e08843304773d6052a0588c27a24.png" alt="\bm{u} &amp;= \frac{\bm{p_{ls}} + \bm{p_{rs}}}{2} - \bm{p_h} \\
+\bm{\hat{u}} &amp;= \frac{\bm{u}}{|\bm{u}|} \\
+\bm{f} &amp;= (\bm{p_{ls}} - \bm{p_h}) \times (\bm{p_{rs}} - \bm{p_h}) \\
+\bm{\hat{f}} &amp;= \frac{\bm{f}}{|\bm{f}|} \\
+\bm{r} &amp;= \bm{\hat{f}} \times \bm{\hat{u}} \\
+\bm{\hat{r}} &amp;= \frac{\bm{r}}{|\bm{r}|} \\
+\bm{\hat{u}} &amp;= \frac{\bm{\hat{r}} \times \bm{\hat{f}}}{|\bm{\hat{r}} \times \bm{\hat{f}}|} \\
+\bm{c} &amp;= - \bm{p_h} \\
+e &amp;= 90 - \frac{180}{\pi} \times (\cos^{-1}(\bm{\hat{u}} \cdot \bm{c})) \\
+\bm{\hat{c_u}} &amp;= (\bm{\hat{u}} \cdot \bm{c}) \bm{\hat{u}} \\
+\bm{\hat{c_{rf}}} &amp;= \frac{\bm{c} - \bm{c_u}}{|\bm{c} - \bm{c_u}|} \\"/></p>
+</div><p>Then calculate the angle around :math: <cite>bm{hat{u}}</cite>, between two vectors, <img class="math" src="_images/math/fdec07c2dd1245585907e9de29b6c09a8068deb4.png" alt="\bm{\hat{f}}"/> and <img class="math" src="_images/math/b420de6039f5f542a1167db98aac1edf768bf767.png" alt="\bm{\hat{c_{rf}}}"/></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>numpy.ndarray</em>) – Joint positions (NxMx3), M = 14 or 16</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array of angles in degrees [0, 360]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="poseutils.props.calculate_limb_lengths">
 <span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">calculate_limb_lengths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jnts_xd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cvt_mm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#calculate_limb_lengths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.calculate_limb_lengths" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Calculates every edge/limb length (Euclidean distance) of a 2d or 3d skeleton.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jnts_xd</strong> (<em>numpy.ndarray</em>) – Joint positions (MxI), M = 14 or 16, I = 2 or 3</p></li>
+<li><p><strong>cvt_mm</strong> (<em>bool</em><em>, </em><em>optional</em>) – Convert from meter to milimeters, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Limb/edge lengths (M-1)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list(float)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="poseutils.props.get_angles_from_joints">
 <span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">get_angles_from_joints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#get_angles_from_joints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.get_angles_from_joints" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Convert skeleton from positions to inter-joint angles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>joints</strong> (<em>numpy.ndarray</em>) – Joint positions (Mx3), M = 14 or 16</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If anyother joint configuration is specified</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>joint_angles: Inter-joint angles</p></li>
+<li><p>edge_names: Edge/limb names</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple(numpy.ndarray, numpy.ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="poseutils.props.get_body_centered_axes">
 <span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">get_body_centered_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#get_body_centered_axes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.get_body_centered_axes" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Calculates and returns body centered axes - right, up and forward vectors of the skeleton.</p>
+<div class="math">
+<p><img src="_images/math/f9fa9b879aa21a90654dbf321b16561dde3a6559.png" alt="\bm{u} &amp;= \frac{\bm{p_{ls}} + \bm{p_{rs}}}{2} - \bm{p_h} \\
+\bm{\hat{u}} &amp;= \frac{\bm{u}}{|\bm{u}|} \\
+\bm{f} &amp;= (\bm{p_{ls}} - \bm{p_h}) \times (\bm{p_{rs}} - \bm{p_h}) \\
+\bm{\hat{f}} &amp;= \frac{\bm{f}}{|\bm{f}|} \\
+\bm{r} &amp;= \bm{\hat{f}} \times \bm{\hat{u}} \\
+\bm{\hat{r}} &amp;= \frac{\bm{r}}{|\bm{r}|} \\
+\bm{f} &amp;= (\bm{p_{ls}} - \bm{p_h}) \times (\bm{p_{rs}} - \bm{p_h}) \\
+\bm{\hat{f}} &amp;= \frac{\bm{f}}{|\bm{f}|} \\
+R &amp;= [\bm{\hat{r}} \; \bm{\hat{u}} \; \bm{\hat{f}}]"/></p>
+</div><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>joints</strong> (<em>numpy.ndarray</em>) – Joint positions (NxMx3), M = 14 or 16</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>up: Up vectors (Nx3x1)</p></li>
+<li><p>forward: Forward vectors (Nx3x1)</p></li>
+<li><p>right: Right vectors (Nx3x1)</p></li>
+<li><p>R: Rotation/set of axes matrix (Nx3x3)</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(numpy.ndarray, numpy.ndarray, numpy.ndarray, numpy.ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="poseutils.props.get_bounding_box_2d">
 <span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">get_bounding_box_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#get_bounding_box_2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.get_bounding_box_2d" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Get 2d bounding box</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>joints</strong> (<em>numpy.ndarray</em>) – Joint positions (NxMx2)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>left_x: Array of x coordinates of left side</p></li>
+<li><p>left_y: Array of y coordinates of left side</p></li>
+<li><p>right_x: Array of x coordinates of right side</p></li>
+<li><p>right_y: Array of y coordinates of right side</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(numpy.ndarray, numpy.ndarray, numpy.ndarray, numpy.ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="poseutils.props.get_joints_from_angles">
 <span class="sig-prename descclassname"><span class="pre">poseutils.props.</span></span><span class="sig-name descname"><span class="pre">get_joints_from_angles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bone_lengths</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/poseutils/props.html#get_joints_from_angles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poseutils.props.get_joints_from_angles" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Convert inter-joint angles to positions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>angles</strong> (<em>numpy.ndarray</em>) – Array of angles in degrees (M-1)x3</p></li>
+<li><p><strong>bone_lengths</strong> (<em>numpy.ndarray</em>) – Array of bone lengths (M-1)x1</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If anyother joint configuration is specified</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Joint positions (Mx3), root centered</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 <section id="module-poseutils.transform">
