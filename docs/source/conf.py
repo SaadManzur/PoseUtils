@@ -44,7 +44,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
-    'sphinx.ext.viewcode',
+    # 'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'rinoh.frontend.sphinx',
     'sphinx.ext.imgmath'
@@ -172,3 +172,4 @@ epub_exclude_files = ['search.html']
 
 
 # -- Extension configuration -------------------------------------------------
+html_show_sourcelink = False
