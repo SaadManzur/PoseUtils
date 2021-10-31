@@ -9,34 +9,6 @@ from poseutils.logger import log
 from poseutils.constants import dataset_indices
 from poseutils.datasets.unprocessed.Dataset import Dataset
 
-parents = [-1, 0, 1, 2, 0, 4, 5, 0, 7, 8, 8, 10, 11, 8, 13, 14]
-joints_left = [4, 5, 6, 10, 11, 12]
-joints_right = [1, 2, 3, 13, 14, 15]
-                        
-skeleton_H36M_joints_group = [[2, 3], [5, 6], [1, 4], [0, 7], [12, 13], [9, 10], [8, 11]]
-
-NAMES_H36M = ['']*14
-NAMES_H36M[0] = 'Hip'
-NAMES_H36M[1] = 'RHip'
-NAMES_H36M[2] = 'RKnee'
-NAMES_H36M[3] = 'RAnkle'
-NAMES_H36M[4] = 'LHip'
-NAMES_H36M[5] = 'LKnee'
-NAMES_H36M[6] = 'LAnkle'
-# NAMES_H36M[7] = 'Spine2'
-NAMES_H36M[7] = 'Neck'
-# NAMES_H36M[8] = 'Head'
-NAMES_H36M[8] = 'LUpperArm'
-NAMES_H36M[9] = 'LElbow'
-NAMES_H36M[10] = 'LWrist'
-NAMES_H36M[11] = 'RUpperArm'
-NAMES_H36M[12] = 'RElbow'
-NAMES_H36M[13] = 'RWrist'
-
-# Human3.6m IDs for training and testing
-TRAIN_SUBJECTS = ['S0']
-TEST_SUBJECTS = ['S0']
-
 class H36MDataset(Dataset):
     """Dataset class for H36M dataset.
 
@@ -52,17 +24,17 @@ class H36MDataset(Dataset):
            "Sitting","SittingDown","Smoking","Waiting",
            "WalkDog","Walking","WalkTogether"]
 
+        self.train_subs = [1, 5, 6, 7, 8]
+        self.test_subs = [9, 11]
+
         self.load_data(path)
 
     def load_data(self, path):
 
         self.cameras = cameras.load_cameras(os.path.join(path, "cameras.h5"))
 
-        TRAIN_SUBJECTS = [1, 5, 6, 7, 8]
-        TEST_SUBJECTS  = [9, 11]
-
-        trainset = self.load_3d_data(path, TRAIN_SUBJECTS, self.actions)
-        testset = self.load_3d_data(path, TEST_SUBJECTS, self.actions)
+        trainset = self.load_3d_data(path, self.train_subs, self.actions)
+        testset = self.load_3d_data(path, self.test_subs, self.actions)
 
         self._data_train['raw'] = trainset
         self._data_valid['raw'] = testset

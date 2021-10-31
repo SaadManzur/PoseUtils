@@ -2,14 +2,14 @@ from setuptools import setup
 
 setup(
     name='poseutils',
-    version='0.3.0',    
+    version='0.3.3',    
     description='A simple package containing common essentials for pose based research',
     author='Saad Manzur',
     author_email='smanzur@uci.edu',
     license='LICENSE.txt',
     packages=['poseutils', 'poseutils.datasets', 'poseutils.datasets.unprocessed', 'poseutils.datasets.transformation', 'poseutils.datasets.processed'],
     install_requires=['numpy', 'tqdm'],
-
+    project_urls={ 'Documentation': 'https://saadmanzur.github.io/PoseUtils' },
     classifiers=[
         'Development Status :: 1 - Planning',
         'Intended Audience :: Science/Research',

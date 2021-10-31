@@ -1,11 +1,12 @@
 Metadata-Version: 2.1
 Name: poseutils
-Version: 0.2.9
+Version: 0.3.3
 Summary: A simple package containing common essentials for pose based research
 Home-page: UNKNOWN
 Author: Saad Manzur
 Author-email: smanzur@uci.edu
 License: LICENSE.txt
+Project-URL: Documentation, https://saadmanzur.github.io/PoseUtils
 Platform: UNKNOWN
 Classifier: Development Status :: 1 - Planning
 Classifier: Intended Audience :: Science/Research

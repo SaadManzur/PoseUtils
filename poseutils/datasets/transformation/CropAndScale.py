@@ -14,7 +14,7 @@ class CropAndScale(Transformation):
     """
 
     def __init__(self, low=0, high=256, *args, **kwds):
-        super(CropAndScale, self).__init__(args, kwds)
+        super(CropAndScale, self).__init__()
 
         self.low = low
         self.high = high

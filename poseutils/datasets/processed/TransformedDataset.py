@@ -1,6 +1,7 @@
 from __future__ import print_function, absolute_import, division
 
 import numpy as np
+from poseutils.logger import log
 from poseutils.datasets.unprocessed.Dataset import Dataset
 from poseutils.datasets.transformation.CalculateMetrics import CalculateMetrics
 
@@ -61,6 +62,8 @@ class TransformedDataset(object):
     def calculate_metrics(self):
         """Calculates mean and standard devation from the training dataset (2d and 3d)
         """
+
+        log("Calculating mean and std")
 
         d2d, d3d = self._data_train['2d'], self._data_train['3d']
 

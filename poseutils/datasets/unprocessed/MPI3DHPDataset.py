@@ -14,6 +14,9 @@ class MPI3DHPDataset(Dataset):
     def __init__(self, path):
         super(MPI3DHPDataset, self).__init__('3dhp')
 
+        self.train_subs = [1, 2, 3, 4, 5, 6]
+        self.test_subs = [7, 8]
+
         self.load_data(path)
 
     def load_data(self, path):
@@ -31,7 +34,7 @@ class MPI3DHPDataset(Dataset):
 
         camera_set = [0, 2, 4, 7, 8]
 
-        for subj in TRAIN_SUBJECTS:
+        for subj in self.train_subs:
             for seq in range(2):
                 stacked_3d = np.vstack([data[(subj, seq+1)]['3dc'][i] for i in camera_set])
                 stacked_2d = np.vstack([data[(subj, seq+1)]['2d'][i] for i in camera_set])
@@ -44,7 +47,7 @@ class MPI3DHPDataset(Dataset):
         data_3d = []
         data_2d = []
 
-        for subj in TEST_SUBJECTS:
+        for subj in self.test_subs:
             for seq in range(2):
                 stacked_3d = np.vstack([data[(subj, seq+1)]['3dc'][i] for i in camera_set])
                 stacked_2d = np.vstack([data[(subj, seq+1)]['2d'][i] for i in camera_set])
