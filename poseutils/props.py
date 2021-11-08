@@ -309,3 +309,31 @@ def get_bounding_box_2d(joints):
     right_y = np.max(joints[:, :, 1], axis=1)+50
 
     return left_x, left_y, right_x, right_y
+
+def get_edm(joints, square_form=False):
+    """Returns a NxMxM euclidean distance matrix or just the upper triangle Nx(Mx(M-1))/2
+
+        :param joints: Joint positions (NxMx2)
+        :type joints: numpy.ndarray
+        :param square_form: Whether to return the full distance matrix, defaults to False
+        :type square_form: bool, optional
+        :return: Array of the upper triangle of the distance matrix (Nx(Mx(M-1))/2) or the full Euclidean distance matrix (NxMxM)
+        :rtype: numpy.ndarray
+    """
+
+    assert joints.shape[-1] == 3 or joints.shape[-1] == 2
+
+    joints_ = joints.copy()
+
+    joints_ = joints_[:, :, :, np.newaxis]
+
+    square_diff = (joints_ - joints_.transpose(0, 3, 2, 1))**2
+
+    edm = np.sqrt(np.sum(square_diff, axis=2))
+
+    if square_form:
+        return edm
+
+    else:
+        indices = np.triu_indices(14, k=1)
+        return edm[:, indices[0], indices[1]]
