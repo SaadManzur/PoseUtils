@@ -44,8 +44,10 @@ def calculate_avg_limb_lengths(jnts_xd, cvt_mm=False):
         :type jnts_xd: numpy.ndarray
         :param cvt_mm: Convert from meter to milimeters, defaults to False
         :type cvt_mm: bool, optional
-        :return: Limb/edge lengths (M-1)
-        :rtype: list(float)
+        :return: Avg. Limb/edge lengths (M-1)
+        :return: Std. Limb/edge lengths (M-1)
+        :return: Limb names
+        :rtype: tuple(list(float), list(float), list(str))
     """
 
     assert len(jnts_xd.shape) == 3
@@ -287,11 +289,13 @@ def get_joints_from_angles(angles, bone_lengths):
     
     return np.array(joints)
 
-def get_bounding_box_2d(joints):
+def get_bounding_box_2d(joints, padding=50):
     """Get 2d bounding box
 
         :param joints: Joint positions (NxMx2)
         :type joints: numpy.ndarray
+        :param padding: Padding around subject
+        :type padding: int
         :return: 
             - left_x: Array of x coordinates of left side
             - left_y: Array of y coordinates of left side
@@ -303,10 +307,10 @@ def get_bounding_box_2d(joints):
     assert joints.shape[-1] == 2
     assert len(joints.shape) == 3
 
-    left_x = np.min(joints[:, :, 0], axis=1)-50
-    left_y = np.min(joints[:, :, 1], axis=1)-50
-    right_x = np.max(joints[:, :, 0], axis=1)+50
-    right_y = np.max(joints[:, :, 1], axis=1)+50
+    left_x = np.min(joints[:, :, 0], axis=1)-padding
+    left_y = np.min(joints[:, :, 1], axis=1)-padding
+    right_x = np.max(joints[:, :, 0], axis=1)+padding
+    right_y = np.max(joints[:, :, 1], axis=1)+padding
 
     return left_x, left_y, right_x, right_y
 

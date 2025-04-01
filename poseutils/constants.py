@@ -63,18 +63,18 @@ EDGES_16 = [[0, 1], [1, 2], [2, 3], [0, 4], [4, 5], [5, 6], [0, 7], [7, 8], [8, 
 LEFTS_16 = [4, 5, 6, 8, 9, 10]
 RIGHTS_16 = [1, 2, 3, 11, 12, 13]
 
-EDGE_NAMES_16JNTS = ['HipRhip',
+EDGE_NAMES_16JNTS = ['HipRHip',
               'RFemur', 'RTibia', 'HipLHip',
               'LFemur', 'LTibia', 'LowerSpine',
               'UpperSpine', 'NeckHead',
               'LShoulder', 'LHumerus', 'LRadioUlnar',
               'RShoulder', 'RHumerus', 'RRadioUlnar']
 
-EDGE_NAMES_14JNTS = ['HipRhip',
-              'RFemur', 'RTibia', 'HipLHip',
-              'LFemur', 'LTibia', 'HipNeck',
-              'LShoulder', 'LHumerus', 'LRadioUlnar',
-              'RShoulder', 'RHumerus', 'RRadioUlnar']
+EDGE_NAMES_14JNTS = ['HipRHip', 'HipLHip', 'HipNeck',
+                     'RFemur', 'RTibia', 
+                     'LFemur', 'LTibia',
+                     'LShoulder', 'LHumerus', 'LRadioUlnar',
+                     'RShoulder', 'RHumerus', 'RRadioUlnar']
 
 def adjacency_list(n_jnts):
     """Returns a adjacency list arranged in parent -> [children list] format either 14 or 16 joint configuration.

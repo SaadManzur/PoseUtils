@@ -1,3 +1,4 @@
+import numpy as np
 from poseutils.constants import *
 
 def draw_axes(R, t, ax, scale=0.5):
@@ -24,7 +25,7 @@ def draw_axes(R, t, ax, scale=0.5):
     ax.plot([t[0], z[0]], [t[1], z[1]], [t[2], z[2]], color='b')
 
 def draw_skeleton(pose, ax, jnts_14=True):
-    """Draws a skeleton from joints 
+    """Draws a skeleton from joints
 
     :param pose: Joint positions either 2d (Nx2) or 3d (Nx3) where N = 14 or 16
     :type pose: numpy.ndarray
@@ -35,12 +36,16 @@ def draw_skeleton(pose, ax, jnts_14=True):
     """
 
     assert len(pose.shape) == 2
-    assert pose.shape[-1] == 3 or pose.shape[-1] == 2 
+    assert pose.shape[-1] == 3 or pose.shape[-1] == 2
 
     if jnts_14:
         edges = EDGES_14
         lefts = LEFTS_14
         rights = RIGHTS_14
+    else:
+        edges = EDGES_16
+        lefts = LEFTS_16
+        rights = RIGHTS_16
 
     is_3d = False
     if pose.shape[-1] == 3:
@@ -83,3 +88,24 @@ def draw_bounding_box(lx, ly, rx, ry, ax):
     """
 
     ax.plot([lx, rx, rx, lx, lx], [ly, ly, ry, ry, ly], color='g')
+
+def draw_a_vector(vec, origin, ax, scale=None, color='k'):
+    """Draws a vector at point t
+
+    :param vec: the vector to draw(only 3D)
+    :type vec: numpy.ndarray
+    :param origin: the origin of the vector
+    :type origin: numpy.ndarray
+    :param ax: Matplotlib subplot reference
+    :type ax: matplotlib.pyplot.subplot
+    """
+
+    assert len(vec.shape) == 1 and len(origin.shape) == 1
+    assert vec.shape[0] == 3
+    assert origin.shape[0] == 3
+
+    if scale is None:
+        scale = np.linalg.norm(vec)
+
+    dest = origin + (vec/np.linalg.norm(vec))*scale
+    ax.plot([origin[0], dest[0]], [origin[1], dest[1]], zs=[origin[2], dest[2]], color=color)

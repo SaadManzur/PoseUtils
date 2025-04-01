@@ -1,13 +1,11 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: poseutils
-Version: 0.3.4
+Version: 0.3.9
 Summary: A simple package containing common essentials for pose based research
-Home-page: UNKNOWN
 Author: Saad Manzur
 Author-email: smanzur@uci.edu
 License: LICENSE.txt
 Project-URL: Documentation, https://saadmanzur.github.io/PoseUtils
-Platform: UNKNOWN
 Classifier: Development Status :: 1 - Planning
 Classifier: Intended Audience :: Science/Research
 Classifier: License :: OSI Approved :: BSD License
@@ -19,6 +17,13 @@ Classifier: Programming Language :: Python :: 3.4
 Classifier: Programming Language :: Python :: 3.5
 Classifier: Programming Language :: Python :: 3.6
 License-File: LICENSE.txt
-
-UNKNOWN
-
+Requires-Dist: numpy
+Requires-Dist: tqdm
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: license
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: summary
